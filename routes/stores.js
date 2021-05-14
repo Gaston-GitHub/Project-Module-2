@@ -4,14 +4,16 @@ const router = express.Router();
 
 const Store = require('../models/store')
 
+// eslint-disable-next-line no-unused-vars
 router.get('/stores', (req, res, next) => {
     Store.find({})
     .then((stores) => {
         res.render('stores/index', {stores})
     })
-} )
+})
 
-router.get('/stores/create', (req, res, next) => {
+// eslint-disable-next-line no-unused-vars
+router.get('/create', (req, res, next) => {
     res.render('stores/create')
 })
 
@@ -19,6 +21,7 @@ router.get('/stores/:id', (req, res, next) => {
     const {id} = req.params
     Store.findById(id)
     .then((store) => {
+        // eslint-disable-next-line no-console
         console.log('store', store)
         res.render('stores/details', {store})
     })
@@ -32,7 +35,8 @@ router.get('stores/:id/edit', (req, res, next) => {
     .catch((error) => next(error))
 })
 
-router.post('/stores', (req, res, next) => {
+// eslint-disable-next-line no-unused-vars
+router.post('/create', (req, res, next) => {
     const {name, address, email} = req.body
     Store.create({name, address, email})
     .then(() => res.redirect('/stores'))
@@ -52,8 +56,16 @@ router.post('/stores/:id/delete', (req, res, next) => {
     })
 })
 
+// eslint-disable-next-line no-unused-vars
 router.post('/stores/:id', (req, res, next) => {
-    const {name, address, }
+    const {name, address, email} = req.body
+    Store.findByIdAndUpdate(req.params.id, {name, address, email}, {new:true})
+    .then(() => {
+        // eslint-disable-next-line no-console
+        console.log('update')
+        res.redirect('/stores')
+    })
+    .catch((error) => console.log(error))
 })
 
 module.exports = router;

@@ -11,7 +11,7 @@ const MongoStore = require('connect-mongo')
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
 
-const stores = require('./stores')
+const stores = require('./routes/stores')
 
 mongoose
   .connect('mongodb://localhost:27017/digital-commerces', { useNewUrlParser: true, useUnifiedTopology: true })

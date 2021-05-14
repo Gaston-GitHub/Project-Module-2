@@ -27,22 +27,22 @@ router.get('/stores/:id', (req, res, next) => {
     .then((store) => {
         // eslint-disable-next-line no-console
         console.log('store', store)
-        res.render('stores/details', {store})
+        res.render('stores/info', {store})
     })
     .catch(error => {next(error)})
 })
 
-router.get('stores/:id/edit', (req, res, next) => {
+router.get('/stores/:id/edit', (req, res, next) => {
     const {id} = req.params;
     Store.findById(id)
-    .then((storeId) => res.render('stores/edit', storeId))
+    .then((store) => res.render('stores/edit', {store}))
     .catch((error) => next(error))
 })
 
 // eslint-disable-next-line no-unused-vars
-router.post('/stores', (req, res, next) => {
-    const {name, address, email} = req.body;
-    Store.create({name, address, email})
+router.post('/:id/edit', (req, res, next) => {
+    const {name, address, category} = req.body;
+    Store.create({name, address, category})
     .then((newStore) => {
     console.log(newStore) 
     res.redirect('/stores')
@@ -65,9 +65,9 @@ router.post('/:id/delete', (req, res, next) => {
 })
 
 // eslint-disable-next-line no-unused-vars
-router.post('/stores/:id', (req, res, next) => {
-    const {name, address, email} = req.body
-    Store.findByIdAndUpdate(req.params.id, {name, address, email}, {new:true})
+router.post('stores/:id', (req, res, next) => {
+    const {name, address, category} = req.body
+    Store.findByIdAndUpdate(req.params.id, {name, address, category}, {new:true})
     .then(() => {
         // eslint-disable-next-line no-console
         console.log('update')

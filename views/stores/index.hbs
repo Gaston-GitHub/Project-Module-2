@@ -2,13 +2,18 @@
 <h2>Listing all stores</h2>
 
 {{#each stores}}
-<p>Name: {{this.title}}</p>
+<p>Name: {{this.name}}</p>
+
+
 <a href='/stores/{{this._id}}'>Store details!</a>
 <br>
 <br>
-<form action='/{{this._id}}/delete' method='POST'>
-    <button type='submit'>Delete</button>
-    {{/each}}
+
+<form action='/{{this._id}}/delete' method='POST'>    
+<button type='submit'>Delete</button>
+</form>
+
+ {{/each}}
     <br>
     <br>
 

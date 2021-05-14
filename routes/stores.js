@@ -1,8 +1,12 @@
 const express = require('express');
 
+const checkIfUserIsLoggedIn = require('../middlewares/auth')
+
 const router = express.Router();
 
 const Store = require('../models/store')
+
+router.use(checkIfUserIsLoggedIn);
 
 // eslint-disable-next-line no-unused-vars
 router.get('/stores', (req, res, next) => {
@@ -36,20 +40,24 @@ router.get('stores/:id/edit', (req, res, next) => {
 })
 
 // eslint-disable-next-line no-unused-vars
-router.post('/create', (req, res, next) => {
-    const {name, address, email} = req.body
+router.post('/stores', (req, res, next) => {
+    const {name, address, email} = req.body;
     Store.create({name, address, email})
-    .then(() => res.redirect('/stores'))
+    .then((newStore) => {
+    console.log(newStore) 
+    res.redirect('/stores')
+    })
     .catch((error) => {
-        res.render('/stores/create', error)
+        console.log(error)
     })
 })
 
-router.post('/stores/:id/delete', (req, res, next) => {
-    const {id} = req.params
-    Store.findByIdAndRemove(id)
-    .then(() => {
-        res.redirect('/stores')
+router.post('/:id/delete', (req, res, next) => {
+    const { id } = req.params
+    Store.findByIdAndDelete(id)
+    .then((store) => {
+        console.log('delete', store)
+        res.redirect('/stores')        
     })
     .catch((error) => {
         next(error)

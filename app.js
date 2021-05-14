@@ -11,6 +11,8 @@ const MongoStore = require('connect-mongo')
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
 
+const stores = require('./stores')
+
 mongoose
   .connect('mongodb://localhost:27017/digital-commerces', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
@@ -51,6 +53,7 @@ app.use(
 
 app.use('/', indexRouter);
 app.use('/', authRouter);
+app.use('/', stores)
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

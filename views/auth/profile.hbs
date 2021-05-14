@@ -1,8 +1,24 @@
  
 
-    <h1>Profile</h1>
 
-    <a href="/logout">logout</a>
+<h2>Edit Profile</h2>
+<form action='/user/{{user._id}}/edit' method='POST'>
+
+    <label for=''>Address</label>
+    <input type='text' name='name' value='{{user.address}}'>
+
+    <label for=''>Company</label>
+    <input type='text' name='company' value='{{user.company}}'>
+
+    <label for=''>Cif</label>
+    <input type='text' name='cif' value='{{user.cif}}'>
+
+    <label for=''>Category</label>
+    <input typw='' name='category' value='{{user.category}}'>
+    
+
+    <button type='submit'>Save Changes</button>
+</form>
 
 
     

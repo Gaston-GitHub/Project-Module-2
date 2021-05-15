@@ -8,20 +8,23 @@ const Store = require('../models/store')
 
 router.use(checkIfUserIsLoggedIn);
 
-// eslint-disable-next-line no-unused-vars
-router.get('/stores', (req, res, next) => {
+// show all the stores created
+router.get('/', (req, res, next) => {
     Store.find({})
     .then((stores) => {
-        res.render('stores/index', {stores})
+        res.render('stores/index', {stores});
     })
+    .catch(error => {
+        next(error);
+    });
+});
+
+// show create page
+router.get('/create', (req, res) => {
+    res.render('stores/create');
 })
 
-// eslint-disable-next-line no-unused-vars
-router.get('/create', (req, res, next) => {
-    res.render('stores/create')
-})
-
-router.get('/stores/:id', (req, res, next) => {
+router.get('/:id', (req, res, next) => {
     const {id} = req.params
     Store.findById(id)
     .then((store) => {
@@ -32,25 +35,26 @@ router.get('/stores/:id', (req, res, next) => {
     .catch(error => {next(error)})
 })
 
-router.get('/stores/:id/edit', (req, res, next) => {
-    const {id} = req.params;
-    Store.findById(id)
-    .then((store) => res.render('stores/edit', {store}))
-    .catch((error) => next(error))
-})
+//create store
 
-// eslint-disable-next-line no-unused-vars
-router.post('/:id/edit', (req, res, next) => {
-    const {name, address, category} = req.body;
-    Store.create({name, address, category})
-    .then((newStore) => {
-    console.log(newStore) 
-    res.redirect('/stores')
+router.post('/', (req, res, next) => {
+    const store = req.body;
+    Store.create({
+        name: store.name,
+        address: store.address,
+        category: store.category
     })
-    .catch((error) => {
-        console.log(error)
+    .then(store => {
+        console.log(store);
+        res.redirect('/stores');
     })
-})
+        .catch((error) => {
+            next(error);
+        });
+    });
+
+    
+//delete store
 
 router.post('/:id/delete', (req, res, next) => {
     const { id } = req.params
@@ -64,16 +68,38 @@ router.post('/:id/delete', (req, res, next) => {
     })
 })
 
-// eslint-disable-next-line no-unused-vars
-router.post('stores/:id', (req, res, next) => {
+
+
+//info store
+
+router.get('/:id/edit', (req, res, next) => {
+    const { id } = req.params;
+    Store.findById(id)
+    .then(store => {
+        res.render('stores/edit', { store });
+    })
+    .catch(error => {
+        next(error);
+    });
+})
+
+
+// update store
+router.post('/:id', (req, res, next) => {
+    const {id} = req.params;
     const {name, address, category} = req.body
-    Store.findByIdAndUpdate(req.params.id, {name, address, category}, {new:true})
+    Store.findByIdAndUpdate(id, {name, address, category}, {new:true})
     .then(() => {
         // eslint-disable-next-line no-console
         console.log('update')
         res.redirect('/stores')
     })
-    .catch((error) => console.log(error))
+    .catch((error) => {
+        next(error);
+    })
 })
 
+
+
 module.exports = router;
+

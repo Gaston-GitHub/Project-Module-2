@@ -1,13 +1,11 @@
 <h2>Store info</h2>
 
-{{#each store}}
-<p>Address: {{this.company}}</p>
-<p>Category: {{this.category}}</p>
+<p>Address: {{store.address}}</p>
+<p>Category: {{store.category}}</p>
 
 
-<a href='/stores/{{this._id}}/edit'>Edit Store</a>
+<a href='/stores/{{store._id}}/edit'>Edit Store</a>
 
-{{/each}}
 
 
 <br></br>

@@ -1,8 +1,386 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Lato';
+  padding: 0px 0px 20px 0px;
+  margin: 0px;
 }
 
-a {
-  color: #00B7FF;
+
+/*------------ LINKS CSS-------------*/
+
+.a-w {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.a-w:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+header a {
+  text-decoration: none;
+}
+
+/*------------ TOP LINE HEADER NAV-------------*/
+
+#toplineheader {
+  padding: 10px 25px 10px 20px;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  border-bottom: 1px #d7d7d7 solid;
+  text-align: center;
+  color: #595959;
+}
+
+
+/*------------ 2nd LINE OF NAV-------------*/
+
+@media screen and (max-width: 762px) {
+  .secondlineheader{
+    padding:20px 30px 30px;
+  }
+  }
+  
+
+
+@media screen and (min-width: 762px) {
+.secondlineheader{
+  padding: 20px 55px 25px;
+}
+}
+
+/*------------ LOGO CSS-------------*/
+
+@media screen and (max-width: 762px) {
+  #logocommerce{
+  height:30px;
+}
+}
+
+
+@media screen and (min-width: 762px) {
+#logocommerce{
+  height:60px;
+}
+}
+
+/*------------ 3th LINE OF NAV-------------*/
+
+
+#thirlineheader {
+  padding: 0 25px 10px 20px;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  background-color: rgba(46, 46, 46, 1);
+}
+
+.nav-bar ul{
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 7px;
+  margin-bottom: 5px;
+  padding-left: 10px;
+}
+
+.nav-bar a{
+  text-decoration:none;
+  color:white;
+  font-weight:semi-bold;
+  font-size: 13px;
+}
+
+.nav-bar a:hover{
+  text-decoration: underline;
+  color:white;
+  font-weight:semi-bold;
+  font-size: 13px;
+}
+
+li {
+  padding: 3px 15px 0px 15px;
+}
+
+li::after {
+  top: -2px;
+  padding: 0px 5px 0px 5px;
+  content: "v";
+  color: #808080;
+  font-size: 10px;
+  position: relative;
+}
+
+
+/*------------ GENERAL CSS HOME-------------*/
+
+.pading30 {
+  padding: 30px;
+}
+
+#info-home{
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 45px;
+    border-radius: 10px;
+    color: white;
+}
+
+
+
+header > div {
+  padding: 0 25px 10px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight:600;
+}
+
+
+
+/*------------ BTTM CSS HOME-------------*/
+
+
+.homebtn{
+  color: black;
+  padding:8px 15px;
+  font-size: 13px;
+}
+.signupbtn{
+  color: black;
+  padding:8px 15px;
+  font-size: 13px;
+}
+
+.signupbtn:hover{
+  color: #3C74D9;
+  padding:8px 15px;
+  font-size: 13px!important;
+}
+
+.logginbtn{
+  color: white;
+  padding:8px 25px;
+  background-color: #3C74D9;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+.logginbtn:hover{
+  color: white;
+  padding:8px 25px;
+  background-color: #45de7c;
+  border-radius: 5px;
+}
+
+
+
+/*------------ FIRST SLIDER HOME SECTION CSS -------------*/
+
+#img-home-prodc {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+@media screen and (max-width: 762px) {
+  #home{
+    background: linear-gradient(
+      90deg
+      , rgb(27, 44, 76) 0%, rgb(53, 118, 148) 100%);
+    padding: 0px 10px 0px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+}
+
+@media screen and (min-width: 762px) {
+#home{
+  background: linear-gradient(
+    90deg
+    , rgb(27, 44, 76) 0%, rgb(53, 118, 148) 100%);
+  padding: 0px 30px 0px;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+}
+}
+
+#home h2{
+  text-align: left;
+  font-size:30px;
+  padding-right: 50px;
+}
+
+#home article p{
+  text-align:left;
+      font-size:18px;
+      max-width:900px;
+      padding-bottom:50px;
+  }
+
+
+
+/*------------CATEGORY SECTION-------------*/
+
+.c-bg {
+  background: #fafafa;
+}
+
+#structure > div {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  color:white;
+  font-size: 18px;
+}
+
+#structure h3 {
+  padding-bottom: 25px;
+  margin: 0px 25px 5px 25px;
+  font-size: 24px;
+  border-bottom: 1px #d7d7d7 solid;
+}
+
+#structure > h3 {
+  text-align: center;
+}
+
+
+@media screen and (max-width: 762px) {
+  .container {
+    width: 400px;
+    margin: 0 auto;
+    padding: 75px 0;
+  }
+}
+
+@media screen and (min-width: 762px) {
+.container {
+  width: 1000px;
+  margin: 0 auto;
+  padding: 75px 0;
+  
+}
+}
+
+@media screen and (max-width: 762px) {
+.service-box {
+    font-size: 16px;
+    text-align: center;
+    border: 2px solid #eee;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 10px 0 #eee;
+    margin: 50px 10px 0 10px;
+    padding: 20px;
+    width: 45%;
+    background: white;
+}
+}
+
+@media screen and (min-width: 762px) {
+.service-box {
+  font-size: 16px;
+  text-align: center;
+  border: 2px solid #eee;
+  border-radius: 5px;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 10px 0 #eee;
+  margin: 50px 2% 0 2%;
+  padding: 50px 20px 50px 20px; 
+   width: 29%;
+  background: white;
+  font-size: 20px;
+}
+}
+
+/*------------CATEGORY CARD SECTION-------------*/
+
+
+#ropaycalzado{
+  background-image: url('/img/ropa-calzado-2.png');
+  background-position: center;
+  background-repeat: no-repeat; 
+  background-size: cover;
+  
+}
+
+#alimentacion{
+  background-image: url('/img/alimentacion.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
+#farmacia{
+  background-image: url('/img/farmacia.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
+#electronicaeinformatica{
+  background-image: url('/img/electronicaeinformatica-2.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
+#papeleria{
+  background-image: url('/img/papeleriaydocumentacion.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
+#floristeria{
+  background-image: url('/img/floristeria.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
+#bricolaje{
+  background-image: url('/img/bricolaje-2.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#decoracion{
+  background-image: url('/img/decoracion.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#hosteleria{
+  background-image: url('/img/hosteleria.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.itm-ctr{
+  text-align: center;
+  align-items: center;
+  align-content: center;
+  display: flex;
+  justify-content: center;
+  color:white;
+  text-decoration: none;
 }

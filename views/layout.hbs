@@ -9,17 +9,32 @@
     <title>{{title}}</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
-  <nav>
-    <ul>
-       <li>
-        <a href="/"> Home </a> <span> | </span>
-        <a href="/signup"> Signup </a> <span> | </span>
-        <a href="/login"> Login </a> <span> | </span>
-      </li>
-    </ul>
-  </nav>
 
-  <body>
+          <div id="toplineheader">
+              <span>Envíos gratis por compras superiores a 50Є.</span>
+          </div>
+
+        <header>
+            <div class="secondlineheader">
+              <img id="logocommerce"src="/img/digital-commerce-logo.png">
+              <div>
+              <a class="signupbtn" href="/signup"> SIGNUP</a> 
+              <a class="logginbtn" href="/login"> LOGIN </a> 
+              </div>
+            </div>
+        
+            <div id="thirlineheader">
+              <nav class="nav-bar">
+                <ul>
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/#category">CATEGORÍAS</a></li>
+                </ul>
+                </nav> 
+            </div>
+        </header>
+
+
+  <body class="body">
 
     {{{body}}}
 
@@ -27,3 +42,5 @@
   </body>
 
 </html>
+
+

@@ -18,12 +18,9 @@ router.get('/profile', checkIfUserIsLoggedIn, (req, res, next) => {
   res.render('auth/profile', { user: req.session.currentUser });
 });
 
-router.get('/:id/edit', (req, res, next) => {
-    const { id } = req.params.id
-    User.findById(id)
-    .then((userId) => res.render('auth/profile', userId))
-    .catch((error) => next(error))
-})
+router.get('/edit', (req, res, next) => {
+  res.render('auth/edit', { user: req.session.currentUser });
+});
 
 router.post('/signup', (req, res, next) => {
   const { name, lastName, email, password, address, companyName, cif, category } = req.body;

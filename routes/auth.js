@@ -26,7 +26,7 @@ router.get('/:id/edit', (req, res, next) => {
 })
 
 router.post('/signup', (req, res, next) => {
-  const { name, lastName, email, password, address, companyName, cif, category } = req.body;
+  const { name, email, password } = req.body;
 
   bcryptjs
     .genSalt(10)
@@ -34,8 +34,9 @@ router.post('/signup', (req, res, next) => {
       console.log('salt', salt);
       return bcryptjs.hash(password, salt);
     })
-    .then(hashedPassword => User.create({ name, lastName, email, hashedPassword, address, companyName, cif, category }))
+    .then(hashedPassword => User.create({ name, email, hashedPassword }))
     .then(() => {
+      console.log('hashedPassword')
       res.redirect('/');
     })
     .catch(error => next(error));

@@ -1,22 +1,24 @@
 
 {{!-- views/auth/signup.hbs --}}
+<div class="body-sig-log"> 
+						<a href="/">Regresar a la home</a>
 
-<div class="container-log-sig">
-	<div class="form-container sign-in-container">
-		<form action="/signup" method="POST">
-			<h1>Crear cuenta</h1>
-			<div class="social-container">
-				<a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="google"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
-			</div>
-			<span>or use your email for registration</span>
-			<input type="text" name="name" placeholder="Name" />
-			<input type="email" name="email" placeholder="Email" />
-			<input type="password" name="password" placeholder="Password" />
-			<button type="submit">Sign Up</button>
-		</form>
-	</div>
+	<div class="container-log-sig">
+		<div class="form-container sign-in-container">
+			<form action="/signup" method="POST">
+				<h1>Crear cuenta</h1>
+				<div class="social-container">
+						<a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+						<a href="#" class="google"><i class="fab fa-google-plus-g"></i></a>
+						<a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+				</div>
+						<span>or use your email for registration</span>
+						<input type="text" name="name" placeholder="Name" />
+						<input type="email" name="email" placeholder="Email" />
+						<input type="password" name="password" placeholder="Password" />
+						<button type="submit">Sign Up</button>
+			</form>
+		</div>
 	
 	<div class="overlay-container">
 		<div class="overlay">
@@ -28,5 +30,5 @@
 		</div>
 	</div>
 </div>
-
+</div>
  

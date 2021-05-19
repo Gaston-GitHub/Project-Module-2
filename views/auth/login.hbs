@@ -1,34 +1,38 @@
 {{!-- views/auth/login.hbs --}}
- 
-<div class="container-log-sig">
-	<div class="form-container sign-in-container">
-		<form action="/login" method="POST">
-			<h1>Ingresa</h1>
-			<div class="social-container">
-				<a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="google"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
-			</div>
-			<span>or use your account</span>
-			<input type="email" name="email" placeholder="Your Email" />
-			<input type="password" name="password" placeholder="Password" />
-			<a href="#">Forgot your password?</a>
-			<button>Login</button>
-		</form>
-	</div>
-	<div class="overlay-container">
-		<div class="overlay">
-			<div class="overlay-panel overlay-right">
-				<h1>Todavia no tienes cuenta?</h1>
-				<p>Create una cuenta y empieza a vender con nosotros</p>
-        <a href="/signup" class="ghost" id="Signup-bttm" >Registrarse</a>
+<div class="body-sig-log">
+					<a href="/">Regresar a la home</a>
+
+	<div class="container-log-sig">
+		<div class="form-container sign-in-container">
+			<form action="/login" method="POST">
+				<h1>Ingresa</h1>
+				<div class="social-container">
+					<a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+					<a href="#" class="google"><i class="fab fa-google-plus-g"></i></a>
+					<a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+				</div>
+				<span>o usa tu cuenta</span>
+				<input type="email" name="email" placeholder="Your Email" />
+				<input type="password" name="password" placeholder="Password" />
+				<a href="#">Olvidaste tu contraseña?</a>
+				<button>Login</button>
+			</form>
+		</div>
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-right">
+					<h1>Todavia no tienes cuenta?</h1>
+					<p>Create una cuenta y empieza a vender con nosotros</p>
+        	<a href="/signup" class="ghost" id="Signup-bttm" >Registrarse</a>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
 
-  {{!-- <div id="form">
+  {{!-- <div id="form" class="pading30">
+>>>>>>> csshome
   <h2>Login</h2>
   <form action="/login" method="POST">
   
@@ -45,3 +49,5 @@
     {{/if}}
   </form>
 </div>    --}}
+
+

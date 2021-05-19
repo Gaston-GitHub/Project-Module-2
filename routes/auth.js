@@ -37,7 +37,7 @@ router.post('/signup', (req, res, next) => {
     .then(hashedPassword => User.create({ name, email, hashedPassword }))
     .then(() => {
       console.log('hashedPassword')
-      res.redirect('/');
+      res.redirect('/profile');
     })
     .catch(error => next(error));
 });

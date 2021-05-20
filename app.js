@@ -12,13 +12,16 @@ const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
 
 const stores = require('./routes/stores')
+const products = require('./routes/products')
 
 mongoose
   .connect('mongodb://localhost:27017/digital-commerces', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
+    // eslint-disable-next-line no-console
     console.log('Connected to DB 🚀');
   })
   .catch(error => {
+    // eslint-disable-next-line no-console
     console.log('error ', error);
   });
 
@@ -54,6 +57,7 @@ app.use(
 app.use('/', indexRouter);
 app.use('/', authRouter);
 app.use('/stores', stores)
+app.use('/products', products)
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -61,7 +65,7 @@ app.use((req, res, next) => {
 });
 
 // error handler
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

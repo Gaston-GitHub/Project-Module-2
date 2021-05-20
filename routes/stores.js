@@ -35,7 +35,7 @@ router.get('/:id', (req, res, next) => {
     .catch(error => {next(error)})
 })
 
-//create store
+// create store
 
 router.post('/', (req, res, next) => {
     const store = req.body;
@@ -45,6 +45,7 @@ router.post('/', (req, res, next) => {
         category: store.category
     })
     .then(store => {
+        // eslint-disable-next-line no-console
         console.log(store);
         res.redirect('/stores');
     })
@@ -54,12 +55,13 @@ router.post('/', (req, res, next) => {
     });
 
     
-//delete store
+// delete store
 
 router.post('/:id/delete', (req, res, next) => {
     const { id } = req.params
     Store.findByIdAndDelete(id)
     .then((store) => {
+        // eslint-disable-next-line no-console
         console.log('delete', store)
         res.redirect('/stores')        
     })
@@ -70,7 +72,7 @@ router.post('/:id/delete', (req, res, next) => {
 
 
 
-//info store
+// info store
 
 router.get('/:id/edit', (req, res, next) => {
     const { id } = req.params;

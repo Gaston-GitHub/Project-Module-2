@@ -1,0 +1,14 @@
+<h2>Info products Page</h2>
+
+{{#each product}}
+<p>Name: {{this.name}}</p>
+<p>Description: {{this.description}}</p>
+<p>Quantity: {{this.quantity}}</p>
+<p>Price: {{this.price}}</p>
+
+
+{{/each}}
+
+<a href='/products/{{product._id}}/edit'>
+  <button>Edit product</button>
+</a>

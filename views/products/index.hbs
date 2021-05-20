@@ -1,0 +1,11 @@
+<h2>Listing our products</h2>
+{{#each products}}
+<p>Name: <a href='/products/{{this._id}}'>{{name}}</a></p>
+<form action='/products/{{this._id}}/delete' method='POST'>
+    <button type='submit'>Delete</button>
+
+    {{/each}}
+    <br>
+    <br>
+    <a href='/products/create'>Create new product</a>
+    <a href='/'>Go back!</a>

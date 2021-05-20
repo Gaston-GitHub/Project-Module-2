@@ -1,23 +1,26 @@
+      
+      <div class="body-sig-log">
 
-<h2>Listing all stores</h2>
+      <h2>Listado de todas las tiendas</h2>
+         {{#each stores}}
+         <p>Name: {{this.name}}</p>
 
-{{#each stores}}
-<p>Name: {{this.name}}</p>
+
+          <a href='/stores/{{this._id}}'>Detalle de la tienda</a>
+      <br>
 
 
-<a href='/stores/{{this._id}}'>Store details!</a>
-<br>
-<br>
 
-<form action='/stores/{{this._id}}/delete' method='POST'>    
-<button type='submit'>Delete</button>
-</form>
+         <form action='/stores/{{this._id}}/delete' method='POST'>    
+         <button type='submit'>Delete</button>
+         </form>
 
- {{/each}}
-    <br>
-    <br>
+         {{/each}}
+         <br>
 
-    <a href='/stores/create'>Create new store!</a>
-    <br>
-    <br>
-    <a href='/'>Go back!</a>
+         <a href='/stores/create'>Crear nueva tienda</a>
+         <br>
+         <br>
+         <a href='/'>Go back!</a>
+
+   </div>

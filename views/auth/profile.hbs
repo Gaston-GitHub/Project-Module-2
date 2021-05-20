@@ -1,4 +1,4 @@
-<div class="body-sig-log">
+{{!-- <div class="body-sig-log">
 
         <h2>Edit Profile</h2>
         <h3>User ID: {{user._id}}</h3>
@@ -9,9 +9,9 @@
       <a href="/"> > Regresar a la home</a>
       <a href="/logout"> > Logout</a>
     
-</div>
+</div> --}}
 
-<div id="sc-edprofile">
+{{!-- <div id="sc-edprofile">
   <h1>Edit Profile Form</h1>
   <div class="sc-container">
     <form action="/user/{{user._id}}/edit" method="POST">
@@ -26,6 +26,61 @@
     <input type="submit" value="Save Changes" />
     </form>
   </div>
-</div>
+</div> --}}
 
+{{!-- <div class="form-container sig-in-container">
+  <div class="body-sig-log">
+    
+
+        <h2>User details</h2>
+        <h3>User ID: {{user._id}}</h3>
+        <h3>User email: {{user.email}}</h3>
+
+			<form action="/user/{{user._id}}/edit" method="POST">
+				<h1>Edit your store details</h1>
+				<input type="text" name="Address" value="{{user.address}}" placeholder="Your Address" />
+				<input type="text" name="Company" value="{{user.company}}" placeholder="Your Company" />
+        <input type="text" name="Category" value="{{user.category}}" placeholder="Your Category" />
+				
+				<button>Save Changes</button>
+			</form>
+    
+	</div>
+    <a href="/stores/"> > Todas mis tiendas </a>
+      <a href="/stores/create"> > Agregar tienda </a>
+      <a href="/"> > Regresar a la home</a>
+      <a href="/logout"> > Logout</a>
+</div>   --}}
+
+<div class="body-sig-log"> 
+						<a href="/">Regresar a la home</a>
+
+	<div class="container-log-sig">
+		<div class="form-container sign-in-container">
+			<form action="/signup" method="POST">
+				<h1>Edit your store details</h1>
+				
+						<span></span>
+						<input type="text" name="Address" value="{{user.address}}" placeholder="Address" />
+						<input type="text" name="Company" value="{{user.company}}" placeholder="Company" />
+						<input type="text" name="Category" value="{{user.category}}" placeholder="Category" />
+						<button type="submit">Save Changes</button>
+			</form>
+		</div>
+	
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-right">
+				<h1>User details</h1>
+        <h3>User ID: {{user._id}}</h3>
+        <h3>User name: {{user.name}}</h3>
+        <h3>User email: {{user.email}}</h3>
+				<a href="/stores/"> > Todas mis tiendas </a>
+        <a href="/stores/create"> > Agregar tienda </a>
+        <a href="/logout"> > Logout</a>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
 

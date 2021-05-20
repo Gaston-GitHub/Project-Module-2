@@ -1,0 +1,42 @@
+             <div id="toplineheader">
+              <span>Envíos gratis por compras superiores a 50Є.</span>
+            </div>
+
+        <header>
+            <div class="secondlineheader">
+              <a href="/"><img id="logocommerce"src="/img/digital-commerce-logo-new.png"></a>
+              <div>
+              <a class="signupbtn" href="/signup"> SIGNUP </a> 
+              <a class="logginbtn" href="/login"> LOGIN </a> 
+              </div>
+            </div>
+        
+            <div id="thirlineheader">
+              <nav class="nav-bar">
+                <ul>
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/#category">CATEGORÍAS</a></li>
+                </ul>
+                </nav> 
+            </div>
+        </header>
+        
+        
+        
+
+<div class="c-bg"> 
+        <section id="structure" class="container">
+             <h3>Ropa y Calzado</h3>
+             <div id="#categorias">
+         {{#each stores}}
+                <article class="service-box itm-ctr flex-dc">
+                     <a class="a-store" href="/">{{this.name}}</a>
+                    <a class="store-d" href='/stores/{{this._id}}'>Detalle de la tienda</a>
+
+                 </article>
+         {{/each}}
+        </section>
+</div>
+
+
+      

@@ -22,6 +22,17 @@ body {
   text-decoration: underline;
 }
 
+.a-store {
+  color: black;
+  font-size: 20px;
+  text-decoration: underline;
+  text-transform: capitalize;
+}
+
+.store-d {
+  font-size: 12px;
+}
+
 header a {
   text-decoration: none;
 }
@@ -155,6 +166,9 @@ header > div {
   font-weight:600;
 }
 
+.flex-dc {
+  flex-direction: column;
+}
 
 
 /*------------ BTTM CSS HOME-------------*/

@@ -11,10 +11,10 @@ router.get('/', (req, res) => {
 });
 
 
-router.get('/ropaycalzado', (req, res, next) => {
+router.get('/ropa-y-calzado', (req, res, next) => {
   Store.find({category: "Ropa y Calzado"})
   .then((stores) => {
-    res.render('categoria/ropaycalzado', {stores});
+    res.render('categoria/ropa-y-calzado', {stores});
   })
   .catch(error => {
     next(error);

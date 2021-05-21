@@ -10,6 +10,8 @@ const Product = require('../models/product')
 router.use(checkIfUserIsLoggedIn);
 
 
+
+
 //   show all products created 
 
 router.get('/', (req, res, next) => {
@@ -45,6 +47,7 @@ router.get('/:id', (req, res, next) => {
 router.post('/', (req, res, next) => {
     const product = req.body;
     Product.create({
+        store: product.store,
         name: product.name,
         description: product.description,
         quantity: product.quantity,

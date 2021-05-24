@@ -4,11 +4,14 @@
 
 <form action='/stores' method='POST'>
 
-    <label for=''>Name</label>
+    <label for=''>Nombre</label>
     <input type='text' name='name'><br>
 
-    <label for=''>Address</label>
+    <label for=''>Dirección</label>
     <input type='text' name='address'><br>
+
+    <label for='image'>Agregar imagen (logo o tienda)</label>
+    <input type='file' name='image' id="image"><br>
 
     <label for="category-select"> Categoría de tienda
         <select name='category'>   
@@ -26,6 +29,8 @@
 
         </select>
     </label>
+
+  
 
     <br>
     <button type='submit'>Submit</button>

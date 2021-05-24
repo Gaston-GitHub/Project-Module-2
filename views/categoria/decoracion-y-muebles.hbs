@@ -26,12 +26,12 @@
 
 <div class="c-bg"> 
         <section id="structure" class="container">
-             <h3>Bricolaje</h3>
+             <h3>Decoración y Muebles</h3>
              <div id="#categorias">
          {{#each stores}}
                 <article class="service-box itm-ctr flex-dc">
-                     <a class="a-store" href="/">{{this.name}}</a>
-                    <a class="store-d" href='/stores/{{this._id}}'>Detalle de la tienda</a>
+                    <a class="a-store" href="/decoracion-y-muebles/{{this._id}}">{{this.name}}</a>
+                    <a class="store-d" href='/decoracion-y-muebles/{{this._id}}'>Ver productos</a>
 
                  </article>
          {{/each}}

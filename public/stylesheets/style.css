@@ -24,13 +24,34 @@ body {
 
 .a-store {
   color: black;
-  font-size: 20px;
-  text-decoration: underline;
+  font-size: 19px;
+  text-transform: capitalize;
+  font-weight: 400;
+}
+
+.location-txt {
+  color: #6e6e6e;
+  font-size: 13px;
   text-transform: capitalize;
 }
 
 .store-d {
+  color: #ff4b2b;
+  padding:8px 15px;
+  border: 1px #ff4b2b solid;
+  border-radius: 5px;
   font-size: 12px;
+  font-weight: 500;
+}
+
+.store-d:hover {
+  background-color: #ff4b2b;
+  color: white;
+  padding:8px 15px;
+  border: 1px #ff4b2b solid;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 500;
 }
 
 header a {
@@ -80,6 +101,14 @@ header a {
   height:80px;
 }
 }
+
+#map-icon {
+  height:20px;
+    position: relative;
+    top: 4px;
+    right: 5px;
+}
+
 
 /*------------ 3th LINE OF NAV-------------*/
 
@@ -131,6 +160,21 @@ li::after {
 
 
 /*------------ GENERAL CSS HOME-------------*/
+
+.p60{
+  padding: 60px;
+}
+
+
+@media screen and (min-width: 762px) {
+.w60{
+  width: 60%;
+}
+}
+
+.w100{
+  width: 100%;
+}
 
 .pading30 {
   padding: 30px;
@@ -259,10 +303,31 @@ header > div {
 .c-bg {
   background: #fafafa;
 }
+.vh75 { 
+height: 75vh;
+}
+
+
+@media screen and (max-width: 762px) {
+  .info-stor-color{ 
+    background: #efefef;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+  }
+  }
+
+@media screen and (min-width: 762px) {
+.info-stor-color{ 
+  background: #efefef;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+}
 
 #structure > div {
   display: flex;
-  justify-content: space-between;
   flex-direction: row;
   flex-wrap: wrap;
   color:white;
@@ -409,4 +474,29 @@ header > div {
   justify-content: center;
   color:white;
   text-decoration: none;
+}
+
+
+/* INFO STORE CARD ====================== */
+
+#info-store-card{
+  padding-top: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 50px;
+  background: white;
+  border-radius: 5px;
+  border: 1px #c4c4c4 solid;
+  box-shadow: 2px 2px 10px 0 #c0c0c0;
+}
+
+#info-store-product{
+  padding-top: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 50px;
+  background: white;
+  border-radius: 5px;
+  border: 1px #c4c4c4 solid;
+  box-shadow: 2px 2px 10px 0 #c0c0c0;
 }

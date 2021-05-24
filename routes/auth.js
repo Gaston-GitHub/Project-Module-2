@@ -5,20 +5,21 @@ const checkIfUserIsLoggedIn = require('../middlewares/auth');
 
 const router = express.Router();
 
-router.get('/signup', (req, res, next) => {
+router.get('/signup', (req, res) => {
   res.render('auth/signup');
 });
 
-router.get('/login', (req, res, next) => {
+router.get('/login', (req, res) => {
   res.render('auth/login');
 });
 
-router.get('/profile', checkIfUserIsLoggedIn, (req, res, next) => {
+router.get('/profile', checkIfUserIsLoggedIn, (req, res) => {
+  // eslint-disable-next-line no-console
   console.log('user', req.session.currentUser);
   res.render('auth/profile', { user: req.session.currentUser });
 });
 
-router.get('/edit', (req, res, next) => {
+router.get('/edit', (req, res) => {
   res.render('auth/edit', { user: req.session.currentUser });
 });
 
@@ -28,11 +29,13 @@ router.post('/signup', (req, res, next) => {
   bcryptjs
     .genSalt(10)
     .then(salt => {
+      // eslint-disable-next-line no-console
       console.log('salt', salt);
       return bcryptjs.hash(password, salt);
     })
     .then(hashedPassword => User.create({ name, email, hashedPassword }))
     .then(() => {
+      // eslint-disable-next-line no-console
       console.log('hashedPassword')
       res.redirect('/profile');
     })

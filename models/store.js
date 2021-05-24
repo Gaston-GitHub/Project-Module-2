@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const userSchema = new Schema({
+const storeSchema = new Schema({
 
-    _id: Schema.Types.ObjectId,
+    owner: {type: Schema.Types.ObjectId, ref:'User'},
     name: String,
     address: String,
     category:  {type: String, enum: ["Ropa y Calzado", "Alimentación", "Farmacias", "Electrónica e Informática",
@@ -12,6 +12,6 @@ const userSchema = new Schema({
      , "Decoración y Muebles", "Restauración y Hostelería", "Otros"]},
 });
 
-const Store = mongoose.model('Store', userSchema);
+const Store = mongoose.model('Store', storeSchema);
 
 module.exports = Store;

@@ -13,21 +13,27 @@
     <label for=''>Price</label>
     <input type='text' name='price'><br>
 
-    <label for=''>Store: </label>
-    <input type='text' value='{{this.store}}'><br>
-    
-   
-    <select name="store">
-     {{#each store}}
-    <option value="{{this._id}}">{{this.name}}</option>
-    {{/each}}
-    </select>
+    <label for="store-select"> Created by:
+        <select name="store">
+            <option disable selected value=""> </option>
+                {{#each dbStore}}
+                <option value="{{this._id}}">{{this.name}}</option>
+                {{/each}}
+        </select>
+    </label>
+    <br>
+
+        <button type='submit'>Submit</button>
+
+</form>
+
+
     
     
 
 
 
-    <button type='submit'>Submit</button>
+
 
 </form> 
 

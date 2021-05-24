@@ -35,11 +35,28 @@ router.get('/:id', (req, res, next) => {
     .catch(error => {next(error)})
 })
 
+// CREAT PRODUCT
+
+router.get('/:id/product-create', (req, res) => {
+    const {id} = req.params
+    Store.findById(id)
+      .then((dbStore) => {
+        res.render('products/create', { dbStore });
+      })
+      .catch((err) =>
+        console.log(`Err while displaying post input page: ${err}`)
+      );
+  });
+
+
+
+
 // create store
 
-router.post('/', (req, res, next) => {
+router.post('/', checkIfUserIsLoggedIn, (req, res, next) => {
     const store = req.body;
     Store.create({
+        owner: req.session.currentUser,
         name: store.name,
         address: store.address,
         category: store.category
@@ -103,5 +120,22 @@ router.post('/:id', (req, res, next) => {
 
 
 
-module.exports = router;
 
+// create product
+
+router.post('/product-create', (req, res, next) => {
+    const { name, description, quantity, price, store } = req.body;
+    Product.create({ name, description, quantity, price, store})
+    .then((dbProduct) => { 
+        return Store.findByIdAndUpdate(store, { $push: 
+        { product: dbProduct._id } });
+    })
+    .then(() => {
+      res.redirect('stores/info');
+    })
+    .catch((error) => {
+    next(error);
+    });
+});
+
+module.exports = router;

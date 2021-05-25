@@ -59,7 +59,7 @@ app.use('/', indexRouter);
 app.use('/', authRouter);
 app.use('/', categoryStoreRouter);
 app.use('/stores', stores)
-app.use('/products', products)
+app.use('/', products)
 
 
 

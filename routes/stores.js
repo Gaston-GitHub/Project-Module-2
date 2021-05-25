@@ -29,8 +29,8 @@ router.use(checkIfUserIsLoggedIn);
 
 
 // show all the stores created
-router.get('/', (req, res, next) => {
-    Store.find({})
+router.get('/', checkIfUserIsLoggedIn, (req, res, next) => {
+    Store.find({ })
     .then((stores) => {
         res.render('stores/index', {stores});
     })
@@ -56,40 +56,7 @@ router.get('/:id', (req, res, next) => {
     .catch(error => {next(error)})
 })
 
-// Create Product
 
-// id de la tienda y form crear producto
-router.get('/:id/product-create', (req, res) => {
-    const {id} = req.params
-    Store.findById(id)
-      .then((dbStore) => {
-        res.render('products/create', { dbStore });
-      })
-      .catch((err) =>
-        // eslint-disable-next-line no-console
-        console.log(`Err while displaying post input page: ${err}`)
-      );
-  }); 
-
-
-
-  router.post('/product-create', (req, res, next) => {
-    const { name, description, quantity, price, store } = req.body;
-    Product.create({ store, name, description, quantity, price})
-    // eslint-disable-next-line arrow-body-style
-    // .then((dbProduct) => {
-    //     return Store.findByIdAndUpdate(store, { $push:
-    //     // eslint-disable-next-line no-underscore-dangle
-    //     { products: dbProduct._id } });
-    //     })
-    .then(dbProduct => {
-        console.log(dbProduct);
-      res.redirect('products/info');
-    })
-    .catch((error) => {
-    next(error);
-    });
-});
 
 
 // create store
@@ -113,6 +80,9 @@ router.post('/', upload.single('imgStore'), checkIfUserIsLoggedIn, (req, res, ne
             next(error);
         });
     });
+
+    
+
 
     
 // Delete store
@@ -148,9 +118,9 @@ router.get('/:id/edit', (req, res, next) => {
 
 router.post('/:id', upload.single('imgStore'), (req, res, next) => {
     const {id} = req.params;
-    const { address, category} = req.body;
+    const {address, category} = req.body;
     const imgStore = req.file.originalname;
-    Store.findByIdAndUpdate(id, { address, category, imgStore}, {new:true})
+    Store.findByIdAndUpdate(id, {address, category, imgStore}, {new:true})
     .then(() => {
         // eslint-disable-next-line no-console
         console.log('update')

@@ -1,0 +1,40 @@
+<h2>Crear producto</h2>
+<form action='/product-create' method='POST'>
+
+    <label for=''>Nombre</label>
+    <input type='text' name='name'><br>
+
+    <label for=''>Descripcion</label>
+    <input type='text' name='description'><br>
+
+    <label for=''>Cantidad</label>
+    <input type='text' name='quantity'><br>
+
+    <label for=''>Precio</label>
+    <input type='text' name='price'><br>
+
+    <label for="store-select"> Creado por:
+        <select name="store">
+            <option disable selected value=""></option>
+                {{#each dbStore}}
+                <option value="{{this._id}}">{{this.name}}</option>
+                {{/each}}
+        </select>
+    </label>
+    <br>
+
+        <button type='submit'>Crear el producto</button>
+
+</form>
+
+
+    
+    
+
+
+
+
+
+</form> 
+
+<a href='/products'>Volver atras!</a>

@@ -4,6 +4,8 @@ const multer = require('multer');
 const router = express.Router();
 const Store = require('../models/store')
 
+const Product = require('../models/product')
+
 router.use(checkIfUserIsLoggedIn);
 
   
@@ -38,6 +40,7 @@ router.get('/', (req, res, next) => {
 });
 
 // show create page
+
 router.get('/create', (req, res) => {
     res.render('stores/create');
 })
@@ -53,17 +56,56 @@ router.get('/:id', (req, res, next) => {
     .catch(error => {next(error)})
 })
 
-//create store
+// Create Product
 
-router.post('/', upload.single('imgStore'), (req, res, next) => {
+// id de la tienda y form crear producto
+router.get('/:id/product-create', (req, res) => {
+    const {id} = req.params
+    Store.findById(id)
+      .then((dbStore) => {
+        res.render('products/create', { dbStore });
+      })
+      .catch((err) =>
+        // eslint-disable-next-line no-console
+        console.log(`Err while displaying post input page: ${err}`)
+      );
+  }); 
+
+
+
+  router.post('/product-create', (req, res, next) => {
+    const { name, description, quantity, price, store } = req.body;
+    Product.create({ store, name, description, quantity, price})
+    // eslint-disable-next-line arrow-body-style
+    // .then((dbProduct) => {
+    //     return Store.findByIdAndUpdate(store, { $push:
+    //     // eslint-disable-next-line no-underscore-dangle
+    //     { products: dbProduct._id } });
+    //     })
+    .then(dbProduct => {
+        console.log(dbProduct);
+      res.redirect('products/info');
+    })
+    .catch((error) => {
+    next(error);
+    });
+});
+
+
+// create store
+
+router.post('/', upload.single('imgStore'), checkIfUserIsLoggedIn, (req, res, next) => {
     const store = req.body;
     Store.create({
+        owner: req.session.currentUser,
         name: store.name,
         address: store.address,
         category: store.category,
         imgStore: req.file.originalname,
     })
+    // eslint-disable-next-line no-shadow
     .then(store => {
+        // eslint-disable-next-line no-console
         console.log(store);
         res.redirect('/stores');
     })
@@ -73,12 +115,13 @@ router.post('/', upload.single('imgStore'), (req, res, next) => {
     });
 
     
-//delete store
+// Delete store
 
 router.post('/:id/delete', (req, res, next) => {
     const { id } = req.params
     Store.findByIdAndDelete(id)
     .then((store) => {
+        // eslint-disable-next-line no-console
         console.log('delete', store)
         res.redirect('/stores')        
     })
@@ -87,9 +130,7 @@ router.post('/:id/delete', (req, res, next) => {
     })
 })
 
-
-
-//info store
+// Info store
 
 router.get('/:id/edit', (req, res, next) => {
     const { id } = req.params;
@@ -103,12 +144,13 @@ router.get('/:id/edit', (req, res, next) => {
 })
 
 
-// update store
+// Update store
+
 router.post('/:id', upload.single('imgStore'), (req, res, next) => {
     const {id} = req.params;
-    const {name, address, category} = req.body;
+    const { address, category} = req.body;
     const imgStore = req.file.originalname;
-    Store.findByIdAndUpdate(id, {name, address, category, imgStore}, {new:true})
+    Store.findByIdAndUpdate(id, { address, category, imgStore}, {new:true})
     .then(() => {
         // eslint-disable-next-line no-console
         console.log('update')
@@ -121,5 +163,20 @@ router.post('/:id', upload.single('imgStore'), (req, res, next) => {
 
 
 
-module.exports = router;
 
+/* create product
+
+router.post('/product-create', (req, res, next) => {
+    const { name, description, quantity, price, store } = req.body;
+    Product.create({ name, description, quantity, price, store})
+    .then((dbProduct) => Store.findByIdAndUpdate(store, { $push: 
+        { product: dbProduct._id } }))
+    .then(() => {
+      res.redirect('stores/info');
+    })
+    .catch((error) => {
+    next(error);
+    });
+}); */
+
+module.exports = router;

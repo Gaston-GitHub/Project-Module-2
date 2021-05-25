@@ -2,6 +2,8 @@ const express = require('express');
 
 const router = express.Router();
 
+const Product = require('../models/product')
+
 const Store = require('../models/store')
 
 
@@ -18,6 +20,18 @@ router.get('/ropa-y-calzado', (req, res, next) => {
 });
 
 router.get('/ropa-y-calzado/:id', (req, res, next) => {
+  const {id} = req.params;
+  Store.findById(id)
+  .then((store) => {
+      // eslint-disable-next-line no-console
+      console.log('store', store)
+      res.render('info-store', { store })
+  })
+  .catch(error => {next(error)});
+
+})
+
+router.get('/ropa-y-calzado/:id', (req, res, next) => {
   const {id} = req.params
   Store.findById(id)
   .then((store) => {
@@ -27,7 +41,6 @@ router.get('/ropa-y-calzado/:id', (req, res, next) => {
   })
   .catch(error => {next(error)})
 })
-
 
 
 /* GET ALIMENTACION page ========================*/

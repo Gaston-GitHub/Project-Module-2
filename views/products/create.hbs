@@ -1,21 +1,21 @@
-<h2>Create Product</h2>
-<form action='/products' method='POST'>
+<h2>Crear producto</h2>
+<form action='/product-create' method='POST'>
 
-    <label for=''>Name</label>
+    <label for=''>Nombre</label>
     <input type='text' name='name'><br>
 
-    <label for=''>Description</label>
+    <label for=''>Descripcion</label>
     <input type='text' name='description'><br>
 
-    <label for=''>Quantity</label>
+    <label for=''>Cantidad</label>
     <input type='text' name='quantity'><br>
 
-    <label for=''>Price</label>
+    <label for=''>Precio</label>
     <input type='text' name='price'><br>
 
-    <label for="store-select"> Created by:
+    <label for="store-select"> Creado por:
         <select name="store">
-            <option disable selected value=""> </option>
+            <option disable selected value=""></option>
                 {{#each dbStore}}
                 <option value="{{this._id}}">{{this.name}}</option>
                 {{/each}}
@@ -23,7 +23,7 @@
     </label>
     <br>
 
-        <button type='submit'>Submit</button>
+        <button type='submit'>Crear el producto</button>
 
 </form>
 
@@ -37,4 +37,4 @@
 
 </form> 
 
-<a href='/products'>Go back!</a>
+<a href='/products'>Volver atras!</a>

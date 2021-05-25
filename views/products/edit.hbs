@@ -1,18 +1,20 @@
 
-<h2>Edit Product</h2>
+<h2>Editar el producto</h2>
 <form action='/products/{{product._id}}/edit' method='POST'>
 
-    <label for=''>Name</label>
+    <label for=''>Nombre</label>
     <input type='text' name='name' value='{{product.name}}'>
 
-    <label for=''>Description</label>
+    <label for=''>Descripcion</label>
     <input type='text' name='description' value='{{product.description}}'>
 
-    <label for=''>Quantity</label>
+    <label for=''>Cantidad</label>
     <input type='text' name='quantity' value='{{product.quantity}}'>
 
-    <label for=''>Price</label>
+    <label for=''>Precio</label>
     <input type='text' name='price' value='{{product.price}}'>
 
-    <button type='submit'>Save Changes</button>
+    <button type='submit'>Guardar los cambios</button>
 </form>
+
+<a href="/">Volver atras!</a>

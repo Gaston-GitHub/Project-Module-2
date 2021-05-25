@@ -8,16 +8,13 @@ const Store = require('../models/store')
 
 const Product = require('../models/product')
 
-
 router.use(checkIfUserIsLoggedIn);
 
-
-
-
-//   show all products created 
+// Show all products created 
 
 router.get('/', (req, res, next) => {
     Product.find({})
+    .populate('store')
     .then((products) => {
         res.render('products/index', {products})
     })
@@ -26,7 +23,7 @@ router.get('/', (req, res, next) => {
     });
 });
 
-// show create products
+// Show create products
 
 router.get('/create', (req, res) => {
     res.render('products/create');
@@ -38,84 +35,72 @@ router.get('/:id', (req, res, next) => {
     .then((product) => {
         // eslint-disable-next-line no-console
         console.log('product', product)
-        res.render('products/info', {product})
+        res.render('product/info', {product})
     })
     .catch(error => {next(error)})  
 })
 
-// find store for create product
+// Find store for create product
 
 router.get('/product-create', (req, res) => {
     Store.find()
       .then((dbStore) => {
-        res.render('products/create', { dbStore });
+        res.render('product/create', { dbStore });
       })
       .catch((err) =>
+        // eslint-disable-next-line no-console
         console.log(`Err while displaying post input page: ${err}`)
       );
   });
 
-// create product
-
 // router.post('/product-create', (req, res, next) => {
-//     const { name, description, quantity, price, store } = req.body;
-//     Product.create({ name, description, quantity, price, store})
-//     .then((dbProduct) => { 
-//         return Store.findByIdAndUpdate(store, { $push: 
-//         { product: dbProduct._id } });
-//     })
+//     const { store, name, description, quantity, price } = req.body;
+//     Product.create({ store, name, description, quantity, price})
+//     // eslint-disable-next-line arrow-body-style
+//     .then((dbProduct) => {
+//         return Store.findByIdAndUpdate(store, { $push:
+//         // eslint-disable-next-line no-underscore-dangle
+//         { products: dbProduct._id } });
+//         })
 //     .then(() => {
-//       res.redirect('/products');
+//       res.redirect('products/info');
 //     })
 //     .catch((error) => {
 //     next(error);
 //     });
 // });
 
-// router.post('/', (req, res, next) => {
-//     const product = req.body;
-//     Store.find({ owner: req.session.currentUser})
-//     .then(store => {
-//         console.log('storeID:', store._id)
-//         const idStore = store._id;
-//     })
-//     Product.create({
-//         idStore,
-//         name: product.name,
-//         description: product.description,
-//         quantity: product.quantity,
-//         price: product.price,   
-//   })
-//   .then(prod => {
-//       // eslint-disable-next-line no-console
-//       console.log(prod);
-//       res.redirect('/products');
-//   })
-//   .catch((error) => {
-//       next(error);
-//   });
-// });
+router.get('/products', (req, res, next) => {
+    Product.find()
+        .populate('store', {store: 1})
+        .then((dbProducts) => {
+            res.render('products/index', {products: dbProducts})
+        })
+        .catch((error) => {
+            next(error);
+        });    
+})
 
-// delete product
+// Delete product
 
-router.get('/:id/delete', (req, res, next) => {
+router.post('/:id/delete', (req, res, next) => {
     const {id} = req.params;
     Product.findByIdAndDelete(id)
     .then((prod) => {
         // eslint-disable-next-line no-console
         console.log('delete', prod )
+        res.redirect('/products')
     })
     .catch((error) => {
         next(error);
     });
 });
 
-// info product
+// Info product
 
 router.get('/:id/edit', (req, res, next) => {
     const {id} = req.params;
     Product.findById(id)
-    .populate('store')
     .then(product => {
         res.render('products/edit', {product})
     })
@@ -124,7 +109,7 @@ router.get('/:id/edit', (req, res, next) => {
     });
 });
 
-// update product
+// Update product
 
 router.post('/id', (req, res, next) => {
     

@@ -10,6 +10,7 @@ const storeSchema = new Schema({
     category:  {type: String, enum: ["Ropa y Calzado", "Alimentación", "Farmacias", "Electrónica e Informática",
      "Papelería y Documentación", "Floristería", "Bricolaje"
      , "Decoración y Muebles", "Restauración y Hostelería", "Otros"]},
+    products: [{type: Schema.Types.ObjectId, ref:'Product'}]
 });
 
 const Store = mongoose.model('Store', storeSchema);

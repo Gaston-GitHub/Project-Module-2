@@ -15,7 +15,7 @@ router.get('/login', (req, res, next) => {
 
 router.get('/profile', checkIfUserIsLoggedIn, (req, res, next) => {
   console.log('user', req.session.currentUser);
-  res.render('auth/profile', { user: req.session.currentUser });
+  res.render('auth/profile', { user: req.session.currentUser});
 });
 
 router.get('/edit', (req, res, next) => {

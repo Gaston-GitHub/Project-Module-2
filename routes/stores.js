@@ -1,12 +1,30 @@
 const express = require('express');
-
 const checkIfUserIsLoggedIn = require('../middlewares/auth')
-
+const multer = require('multer');
 const router = express.Router();
-
 const Store = require('../models/store')
 
 router.use(checkIfUserIsLoggedIn);
+
+  
+  const fileStorageEngine = multer.diskStorage({
+      //destination for files
+    destination: (req, file, cb) => {
+    cb(null, './public/uploads');
+    },
+
+    //back files
+    filename: (req, file, cb) => {
+      cb(null, file.originalname);
+    },
+  });
+
+  //upload parameters for multer
+  const upload = multer({
+       storage: fileStorageEngine 
+    });
+  
+
 
 // show all the stores created
 router.get('/', (req, res, next) => {
@@ -37,12 +55,13 @@ router.get('/:id', (req, res, next) => {
 
 //create store
 
-router.post('/', (req, res, next) => {
+router.post('/', upload.single('imgStore'), (req, res, next) => {
     const store = req.body;
     Store.create({
         name: store.name,
         address: store.address,
-        category: store.category
+        category: store.category,
+        imgStore: req.file.originalname,
     })
     .then(store => {
         console.log(store);
@@ -85,10 +104,11 @@ router.get('/:id/edit', (req, res, next) => {
 
 
 // update store
-router.post('/:id', (req, res, next) => {
+router.post('/:id', upload.single('imgStore'), (req, res, next) => {
     const {id} = req.params;
-    const {name, address, category} = req.body
-    Store.findByIdAndUpdate(id, {name, address, category}, {new:true})
+    const {name, address, category} = req.body;
+    const imgStore = req.file.originalname;
+    Store.findByIdAndUpdate(id, {name, address, category, imgStore}, {new:true})
     .then(() => {
         // eslint-disable-next-line no-console
         console.log('update')

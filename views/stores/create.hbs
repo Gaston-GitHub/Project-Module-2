@@ -2,7 +2,7 @@
 
 <h2>Crear nueva tienda</h2>
 
-<form action='/stores' method='POST'>
+<form action='/stores' enctype="multipart/form-data" method='POST'>
 
     <label for=''>Nombre</label>
     <input type='text' name='name'><br>
@@ -10,8 +10,8 @@
     <label for=''>Dirección</label>
     <input type='text' name='address'><br>
 
-    <label for='image'>Agregar imagen (logo o tienda)</label>
-    <input type='file' name='image' id="image"><br>
+    <label for=''>Imagen (Logotipo o tienda)</label>
+    <input type="file" name="imgStore" accept = ".jpg, .jpeg, .png"> <br>
 
     <label for="category-select"> Categoría de tienda
         <select name='category'>   

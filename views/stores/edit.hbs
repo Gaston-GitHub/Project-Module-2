@@ -1,7 +1,7 @@
 <div class="body-sig-log">
 
 <h2>Editar Tienda</h2>
-  <form action='/stores/{{store._id}}' method='POST'>
+  <form action='/stores/{{store._id}}' enctype="multipart/form-data" method='POST'>
 
     <label for=''>Address</label>
     <input type='text' name='address' value='{{store.address}}'>
@@ -9,6 +9,11 @@
     <label for=''>Category</label>
     <input type='text' name='category' value='{{store.category}}'>
 
+    <label for=''>Subir o Actualizar imágen</label>
+    <input type="file" name="imgStore" accept = ".jpg, .jpeg, .png">
+    <br>
+    <img class="editlogo-store " src="/uploads/{{store.imgStore}}"></a>
+    <br>
     <button type='submit'>Save Changes</button>
 
   </form>

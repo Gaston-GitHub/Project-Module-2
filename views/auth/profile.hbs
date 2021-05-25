@@ -1,64 +1,36 @@
-<div class="body-sig-log">
+ <div class="vh100">     
+     
+      <div class="card-to-prof"> 
+              <div>
+                     <a class="lg-hm-btm" href="/"> HOME</a>
+              </div>
 
-        <h2>Edit Profile</h2>
-        <h3>User ID: {{user._id}}</h3>
-        <h3>User email: {{user.email}}</h3>
+              <div>
+                     <a class="lg-hm-btm" href="/logout">LOGOUT</a>
+              </div>
+      </div> 
 
-      <a href="/stores/"> > Todas mis tiendas </a>
-      <a href="/stores/create"> > Agregar tienda </a>
-      <a href="/"> > Regresar a la home</a>
-      <a href="/logout"> > Logout</a>
-    
-</div>
 
-<div class="container bootstrap snippets bootdey">
-    <h1 class="text-primary"><span class="glyphicon glyphicon-user"></span>Edit Profile</h1>
-      <hr>
-	<div class="row">
-      <!-- left column -->
-      <div class="col-md-3">
-        <div class="text-center">
-          <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
-          <h6>Upload a different photo...</h6>
-          
-          <input type="file" class="form-control">
-        </div>
-      </div>
-      
-      <!-- edit form column -->
-      <div class="col-md-9 personal-info">
-        <div class="alert alert-info alert-dismissable">
-          <a class="panel-close close" data-dismiss="alert">×</a> 
-          <i class="fa fa-coffee"></i>
-          This is an <strong>.alert</strong>. Use this to show important messages to the user.
-        </div>
-        <h3>Personal info</h3>
-        
-        <form class="form-horizontal" action="/user/{{user._id}}/edit" method="POST">
-          <div class="form-group">
-            <label for="" class="control-label">Address:</label>
-            <div class="col-lg-8">
-              <input type="text" name="name" class="form-control" type="text" value="{{user.address}}">
-            </div>
-          </div>
-        
-        
-          <div class="form-group">
-            <label for="" class="col-lg-3 control-label">Company:</label>
-            <div class="col-lg-8">
-              <input type="text" name="company" class="form-control" value="{{user.company}}">
-            </div>
-          </div>
+    <div class="card-profile"> 
+            <div class="info-profile"> 
+                <h3>User ID: {{user._id}}</h3>
+                <h3>Email: {{user.email}}</h3>
+           </div> 
+    </div>
 
-          <div class="form-group">
-            <label for="" class="col-lg-3 control-label">Category</label>
-            <div class="col-lg-8">
-              <input type="text" name="cateogry" class="form-control" type="text" value="{{user.category}}">
-            </div>
-          </div>
-          <br>
-        <button type='submit'>Save Changes</button>
-        </form>
-      </div>
-  </div>
+
+    <div class="card-profile"> 
+            <div class="info-profile-2"> 
+              <div class="icon-box-p">
+                    <img class="icon-prof "src="/img/add-img.png"><a class="cp a-c" href="/stores/create">Agregar<br>Tienda</a>
+              </div>
+              <div class="icon-box-p">
+                    <img class="icon-prof "src="/img/list-store.png"><a class="cp a-c" href="/stores/">Ver <br>Mis Tiendas</a>
+              </div>
+              <div class="icon-box-p">
+                    <img class="icon-prof "src="/img/add-product.png"><a class="cp a-c" href="/stores/create">Subir<br>Producto</a>
+              </div>
+           </div> 
+    </div>
+
 </div>

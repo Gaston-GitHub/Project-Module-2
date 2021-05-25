@@ -30,8 +30,9 @@
              <div id="#categorias">
          {{#each stores}}
                 <article class="service-box itm-ctr flex-dc">
+                     <a href="/alimentacion/{{this._id}}"><img class="logoImg-store"src="/uploads/{{this.imgStore}}"></a>
                      <a class="a-store" href="/alimentacion/{{this._id}}">{{this.name}}</a>
-                    <a class="store-d" href='/alimentacion/{{this._id}}'>Ver productos</a>
+                     <a class="store-d" href='/alimentacion/{{this._id}}'>Ver productos</a>
 
                  </article>
          {{/each}}

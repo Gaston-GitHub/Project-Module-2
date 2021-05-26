@@ -1,6 +1,7 @@
 const express = require('express');
-const checkIfUserIsLoggedIn = require('../middlewares/auth')
 const multer = require('multer');
+const checkIfUserIsLoggedIn = require('../middlewares/auth')
+
 const router = express.Router();
 const Store = require('../models/store')
 
@@ -10,25 +11,24 @@ router.use(checkIfUserIsLoggedIn);
 
   
   const fileStorageEngine = multer.diskStorage({
-      //destination for files
+      // destination for files
     destination: (req, file, cb) => {
     cb(null, './public/uploads');
     },
 
-    //back files
+    // back files
     filename: (req, file, cb) => {
       cb(null, file.originalname);
     },
   });
 
-  //upload parameters for multer
+  // upload parameters for multer
   const upload = multer({
        storage: fileStorageEngine 
     });
   
 
-
-// show all the stores created
+ // show all the stores created
 router.get('/', (req, res, next) => {
     Store.find({})
     .then((stores) => {
@@ -71,18 +71,18 @@ router.get('/:id/product-create', (req, res) => {
       );
   }); 
 
-
-
-  router.post('/product-create', (req, res, next) => {
-    const { name, description, quantity, price, store } = req.body;
-    Product.create({ store, name, description, quantity, price})
-    // eslint-disable-next-line arrow-body-style
-    // .then((dbProduct) => {
-    //     return Store.findByIdAndUpdate(store, { $push:
-    //     // eslint-disable-next-line no-underscore-dangle
-    //     { products: dbProduct._id } });
-    //     })
+  router.post('/:id', (req, res, next) => {
+    const product = req.body;
+    Product.create({   
+        name: product.name, 
+        description: product.description, 
+        quantity: product.quantity, 
+        price: product.price,
+        // eslint-disable-next-line no-undef
+        store: {type: Schema.Types.ObjectId, ref:'Store'},
+    })
     .then(dbProduct => {
+        // eslint-disable-next-line no-console
         console.log(dbProduct);
       res.redirect('products/info');
     })

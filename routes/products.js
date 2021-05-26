@@ -57,12 +57,8 @@ router.get('/product-create', (req, res) => {
 //     const { store, name, description, quantity, price } = req.body;
 //     Product.create({ store, name, description, quantity, price})
 //     // eslint-disable-next-line arrow-body-style
-//     .then((dbProduct) => {
-//         return Store.findByIdAndUpdate(store, { $push:
-//         // eslint-disable-next-line no-underscore-dangle
-//         { products: dbProduct._id } });
-//         })
-//     .then(() => {
+//     .then(dbProduct => {
+//         console.log(dbProduct);
 //       res.redirect('products/info');
 //     })
 //     .catch((error) => {

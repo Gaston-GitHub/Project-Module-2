@@ -2,7 +2,7 @@
 <div class="body-sig-log">
 
 <h2>Crear producto</h2>
-<form action='/product-create' method='POST'>
+<form action='/product-create' enctype="multipart/form-data" method='POST'>
 
     <label for=''>Nombre</label>
     <input type='text' name='name'><br>
@@ -15,6 +15,9 @@
 
     <label for=''>Precio</label>
     <input type='text' name='price'><br>
+
+    <label for=''>Imagen del producto</label>
+    <input type="file" name="imgProduct" accept = ".jpg, .jpeg, .png"> <br>
 
     <label for="store-select"> Tienda:
         <select name="store">

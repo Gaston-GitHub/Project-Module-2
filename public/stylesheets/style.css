@@ -332,6 +332,10 @@ header > div {
 .c-bg {
   background: #fafafa;
 }
+
+.c-pg {
+  background: #efefef;
+}
 .vh75 { 
 height: 75vh;
 }
@@ -343,6 +347,7 @@ height: 75vh;
       display: flex;
       flex-direction: column;
       text-align: center;
+      
   }
   }
 
@@ -352,6 +357,9 @@ height: 75vh;
     display: flex;
     flex-direction: row;
     text-align: center;
+    margin: 0px auto;
+    width: 1250px;
+
 }
 }
 
@@ -427,16 +435,17 @@ height: 75vh;
 
 
 .a-category {
-    background: #ff4c2a;
-    color: white;
-    border-radius: 54px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-left: 45px;
-    margin-right: 45px;
-    font-size: 10px;
+  background: #ff4c2a00;
+  color: #ff4c2a;
+  border-radius: 54px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: 45px;
+  margin-right: 45px;
+  font-size: 10px;
+  border: 1px #ff4c2a solid;
 }
 
 #ropaycalzado{
@@ -522,15 +531,26 @@ height: 75vh;
 /* INFO STORE CARD ====================== */
 
 #info-store-card{
-  padding-top: 50px;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-bottom: 50px;
+  padding-top: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
   background: white;
   border-radius: 5px;
   border: 1px #c4c4c4 solid;
   box-shadow: 2px 2px 10px 0 #c0c0c0;
 }
+
+.info-store-prod {
+  padding: 15px;
+  background: white;
+  border-radius: 5px;
+  border: 1px #c4c4c4 solid;
+  box-shadow: 2px 2px 10px 0 #c0c0c0;
+  margin-bottom: 35px;
+  display: flex;
+}
+
 
 #info-store-product{
   padding-top: 50px;
@@ -670,3 +690,20 @@ height: 75vh;
   position: relative;
 }
 
+.card-picprod {
+    width: 450px;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    background-color: gainsboro;
+}
+
+.pic-prod {
+  border: 1px #d7d7d7 solid;
+  max-width: 100%;
+  border-radius: 5px;
+  height: 100%;
+}

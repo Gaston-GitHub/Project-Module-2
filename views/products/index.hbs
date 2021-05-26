@@ -1,11 +1,15 @@
 <h2>Listado de productos</h2>
-{{#each products}}
-<p>Nombre: <a href='/products/{{this._id}}'>{{name}}</a></p>
-<form action='/products/{{this._id}}/delete' method='POST'>
-    <button type='submit'>Borrar</button>
 
+    {{#each products}}
+
+    <p>Nombre: <a href='/{{this._id}}/edit'>{{name}}</a></p>
+    <p>Tienda:{{store.name}}</a></p>
+
+    <form action='/{{this._id}}/delete' method='POST'>
+    <button type='submit'>Borrar</button>
     {{/each}}
+
     <br>
     <br>
-    <a href='/products/create'>Crear nuevo producto</a>
+    <a href='/product-create'>Crear nuevo producto</a>
     <a href='/'>Volver atras!</a>

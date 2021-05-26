@@ -1,6 +1,6 @@
 
 <h2>Editar el producto</h2>
-<form action='/products/{{product._id}}/edit' method='POST'>
+<form action='/{{product._id}}' method='POST'>
 
     <label for=''>Nombre</label>
     <input type='text' name='name' value='{{product.name}}'>
@@ -13,6 +13,11 @@
 
     <label for=''>Precio</label>
     <input type='text' name='price' value='{{product.price}}'>
+    
+    <label for=''>Subir o Actualizar imágen</label>
+    <input type="file" name="imgStore" accept = ".jpg, .jpeg, .png">
+    <br>
+    <img class="editlogo-store " src="/uploads/products/{{product.imgProduct}}"></a>
 
     <button type='submit'>Guardar los cambios</button>
 </form>

@@ -26,10 +26,10 @@
           <div class="w60">
               <div class="p60"> 
                 <section id="info-store-card"> 
-                  <h3>Información de la tienda</h2>
-                  <a href="/"><img class="logoImg-store" src="/uploads/{{store.imgStore}}"></a>
+                  <h3 class="h3-ins">Información de la tienda</h2>
+                  <a href="/"><img class="logoImg-store2" src="/uploads/{{store.imgStore}}"></a>
                   <p>Nombre: {{store.name}}</p>
-                  <p>Dirección: {{store.address}}</p>
+                  <p><img id="map-icon"src="/img/location-icon.png">Dirección: {{store.address}}</p>
                   <p class="a-category">Categoría: {{store.category}}</p>
                   <p>{{store.products.name}}</p>
                   <p>{{products.name}}</p>
@@ -51,9 +51,9 @@
                   <div class="w100"> 
                       <h3>Producto</h2>
                       <p>Nombre: {{this.name}}</p>
-                      <p>Descripción: {{this.description}}</p>
-                      <p>Precio: {{this.quantity}}</p>
-                      <p>Cantidad: {{this.price}}</p>
+                      <p>Descrip: {{this.description}}</p>
+                      <p>Precio: {{this.price}}Є</p>
+                      <p>Cantidad: {{this.quantity}} </p>
                       <button>Comprar</button>
                   </div>
 

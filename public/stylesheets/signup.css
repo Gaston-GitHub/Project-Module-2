@@ -42,6 +42,24 @@ a {
   margin: 15px 0;
 }
 
+@media screen and (max-width: 762px) {
+button {
+  border-radius: 20px;
+  border: 1px solid #ff4b2b;
+  background-color: #ff4b2b;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 35px;
+  margin: 0px 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  border-radius: 5px;
+}
+}
+
+@media screen and (min-width: 762px) {
 button {
   border-radius: 20px;
   border: 1px solid #ff4b2b;
@@ -53,6 +71,8 @@ button {
   letter-spacing: 1px;
   text-transform: uppercase;
   transition: transform 80ms ease-in;
+  border-radius: 5px;
+}
 }
 
 #Signup-bttm {

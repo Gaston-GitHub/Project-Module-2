@@ -184,6 +184,10 @@ li::after {
 
 /*------------ GENERAL CSS HOME-------------*/
 
+.upperc{
+  text-transform: capitalize;
+}
+
 .hw100px{
   height: 100px;
   width: 100px;

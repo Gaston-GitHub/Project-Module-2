@@ -1,3 +1,2 @@
-*.mp4 filter=lfs diff=lfs merge=lfs -text
 *.mov filter=lfs diff=lfs merge=lfs -text
 vecteezy_fifty-percent-sale-fire-letter-animation_1797700720.mov filter=lfs diff=lfs merge=lfs -text

@@ -103,12 +103,21 @@ header a {
 }
 
 .logoImg-store {
-  height: 100px;
-  width: 100px;
+  border-radius: 100%;
+  border: #b4b4b4 1px solid;
+  max-width: 100%;
+  max-height: 100%;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.logoImg-store2 {
+  height: 85px;
+  width: 85px;
   border-radius: 100%;
   border: #b4b4b4 1px solid;
 }
-
 
 .logoImg-liststor {
   border-radius: 100%;
@@ -156,7 +165,7 @@ header a {
   text-decoration: underline;
   color: white;
   font-weight: semi-bold;
-  font-size: 25px;
+  font-size: 13px;
 }
 
 li {
@@ -168,7 +177,7 @@ li::after {
   padding: 0px 5px 0px 5px;
   content: 'v';
   color: #808080;
-  font-size: 20px;
+  font-size: 10px;
   position: relative;
 }
 
@@ -182,7 +191,7 @@ li::after {
   color: white;
 }
 
-.btt-dl{
+.btt-dl {
   border-radius: 20px;
   border: 1px solid #ff4b2b;
   background-color: #ff4b2b;
@@ -197,7 +206,7 @@ li::after {
   cursor: pointer;
 }
 
-.df{
+.df {
   display: flex;
   width: 350px;
   overflow-x: scroll;
@@ -205,7 +214,7 @@ li::after {
   height: 300px;
 }
 
-.upperc{
+.upperc {
   text-transform: capitalize;
 }
 
@@ -232,7 +241,7 @@ li::after {
 }
 
 .p60 {
-  padding: 60px;
+  padding: 40px 60px 5px 60px;
 }
 
 @media screen and (min-width: 762px) {
@@ -287,18 +296,18 @@ header > div {
 .homebtn {
   color: black;
   padding: 8px 15px;
-  font-size: 20px;
+  font-size: 13px;
 }
 .signupbtn {
   color: black;
   padding: 8px 15px;
-  font-size: 20px;
+  font-size: 13px;
 }
 
 .signupbtn:hover {
   color: #ff4b2b;
   padding: 8px 15px;
-  font-size: 20px !important;
+  font-size: 13px !important;
 }
 
 .logginbtn {
@@ -306,7 +315,7 @@ header > div {
   padding: 8px 25px;
   background-color: #ff4b2b;
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 13px;
 }
 
 .logginbtn:hover {
@@ -345,13 +354,13 @@ header > div {
 
 #home h2 {
   text-align: left;
-  font-size: 80px;
+  font-size: 55px;
   padding-right: 50px;
 }
 
 #home article p {
   text-align: left;
-  font-size: 35px;
+  font-size: 25px;
   max-width: 900px;
   padding-bottom: 50px;
 }
@@ -365,27 +374,27 @@ header > div {
 .c-pg {
   background: #f6f5f7;
 }
-.vh75 { 
-height: 75vh;
+.vh75 {
+  height: 75vh;
 }
 
 @media screen and (max-width: 762px) {
-  .info-stor-color{ 
+  .info-stor-color {
     background: #f6f5f7;
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-      
-  }
+    display: flex;
+    flex-direction: column;
+    text-align: center;
   }
 }
 
 @media screen and (min-width: 762px) {
-.info-stor-color{ 
-  background: #f6f5f7;
+  .info-stor-color {
+    background: #f6f5f7;
     display: flex;
     flex-direction: row;
     text-align: center;
+    margin: 0px auto;
+    width: 1250px;
   }
 }
 
@@ -400,7 +409,7 @@ height: 75vh;
 #structure h3 {
   padding-bottom: 25px;
   margin: 0px 25px 5px 25px;
-  font-size: 34px;
+  font-size: 24px;
   border-bottom: 1px #d7d7d7 solid;
 }
 
@@ -458,8 +467,8 @@ height: 75vh;
 /*------------CATEGORY CARD SECTION-------------*/
 
 .a-category {
-  background: #ff4c2a;
-  color: white;
+  background: #919191;
+  color: #ffffff;
   border-radius: 54px;
   padding-top: 2px;
   padding-bottom: 2px;
@@ -468,6 +477,7 @@ height: 75vh;
   margin-left: 45px;
   margin-right: 45px;
   font-size: 10px;
+  font-weight: 600;
 }
 
 #ropaycalzado {
@@ -546,10 +556,15 @@ height: 75vh;
 /* INFO STORE CARD ====================== */
 
 #info-store-card {
-  padding-top: 50px;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-bottom: 50px;
+  padding: 1px 15px 5px 15px;
+  background: white;
+  border-radius: 5px;
+  border: 1px #c4c4c4 solid;
+  box-shadow: 2px 2px 10px 0 #c0c0c0;
+}
+
+.info-store-prod {
+  padding: 15px;
   background: white;
   border-radius: 5px;
   border: 1px #c4c4c4 solid;
@@ -575,7 +590,7 @@ height: 75vh;
   background: #f6f5f7;
   display: flex;
   justify-content: space-between;
-  padding: 55px 100px;
+  padding: 55px 100px 0px 100px;
 }
 
 .card-profile {
@@ -588,48 +603,6 @@ height: 75vh;
   padding-top: 50px;
   margin: -20px 0 0px;
 }
-
-
-@media screen and (max-width: 762px) {
-.info-profile {
-  background: linear-gradient(to right, #ff4b2b, #ff416c);
-  border-radius: 10px;
-  box-shadow: 0 5px 11px rgb(0 0 0 / 25%), 0 1px 13px rgb(0 0 0 / 22%);
-  position: relative;
-  overflow: hidden;
-  width: 400px;
-  max-width: 100%;
-  min-height: 150px;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  display: flex;
-  flex-direction: column;
-  color: white;
-}
-}
-
-@media screen and (min-width: 762px) {
-.info-profile {
-  background: linear-gradient(to right, #ff4b2b, #ff416c);
-  border-radius: 10px;
-  box-shadow: 0 5px 11px rgb(0 0 0 / 25%), 0 1px 13px rgb(0 0 0 / 22%);
-  position: relative;
-  overflow: hidden;
-  width: 750px;
-  max-width: 100%;
-  min-height: 150px;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  display: flex;
-  flex-direction: column;
-  color: white;
-}
-}
-
 
 @media screen and (max-width: 762px) {
   .info-profile {
@@ -652,25 +625,23 @@ height: 75vh;
 }
 
 @media screen and (min-width: 762px) {
-.info-profile-2 {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 5px 11px rgb(0 0 0 / 25%), 0 1px 13px rgb(0 0 0 / 22%);
-  position: relative;
-  overflow: hidden;
-  width: 750px;
-  max-width: 100%;
-  min-height: 150px;
-  text-align: center;
-  justify-content: space-evenly;
-  align-items: center;
-  align-content: center;
-  display: flex;
-  flex-direction: row;
-  color: black;
-  padding: 40px 0px 40px 0px;
-  height: 300px;
-}
+  .info-profile {
+    background: linear-gradient(to right, #ff4b2b, #ff416c);
+    border-radius: 10px;
+    box-shadow: 0 5px 11px rgb(0 0 0 / 25%), 0 1px 13px rgb(0 0 0 / 22%);
+    position: relative;
+    overflow: hidden;
+    width: 750px;
+    max-width: 100%;
+    min-height: 150px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    color: white;
+  }
 }
 
 @media screen and (max-width: 762px) {
@@ -689,7 +660,7 @@ height: 75vh;
     align-content: center;
     display: flex;
     flex-direction: column;
-    color: white;
+    color: black;
     padding: 40px 0px 40px 0px;
     margin-bottom: 40px;
   }
@@ -697,6 +668,50 @@ height: 75vh;
 
 @media screen and (min-width: 762px) {
   .info-profile-2 {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 11px rgb(0 0 0 / 25%), 0 1px 13px rgb(0 0 0 / 22%);
+    position: relative;
+    overflow: hidden;
+    width: 750px;
+    max-width: 100%;
+    min-height: 150px;
+    text-align: center;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    color: black;
+    padding: 40px 0px 40px 0px;
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 762px) {
+  .info-create-str {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 11px rgb(0 0 0 / 25%), 0 1px 13px rgb(0 0 0 / 22%);
+    position: relative;
+    overflow: hidden;
+    width: 400px;
+    max-width: 100%;
+    min-height: 150px;
+    text-align: center;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    color: black;
+    padding: 40px 0px 40px 0px;
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (min-width: 762px) {
+  .info-create-str {
     background: white;
     border-radius: 10px;
     box-shadow: 0 5px 11px rgb(0 0 0 / 25%), 0 1px 13px rgb(0 0 0 / 22%);
@@ -710,8 +725,8 @@ height: 75vh;
     align-items: center;
     align-content: center;
     display: flex;
-    flex-direction: row;
-    color: white;
+    flex-direction: column;
+    color: black;
     padding: 40px 0px 40px 0px;
   }
 }
@@ -738,15 +753,15 @@ height: 75vh;
 }
 
 .card-picprod {
-    width: 450px;
-    height: 235px;
-    text-align: center;
-    align-items: center;
-    align-content: center;
-    display: flex;
-    justify-content: center;
-    border-radius: 5px;
-    background-color: gainsboro;
+  width: 450px;
+  height: 235px;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  background-color: gainsboro;
 }
 
 .pic-prod {
@@ -759,54 +774,52 @@ height: 75vh;
 }
 
 .h3-ins {
-    color: white;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-left: 30px;
-    margin-right: 30px;
-    background: linear-gradient( 
-90deg
-, #660e48 0%, #2a0e0e 100%);
-    border-radius: 5px;
+  color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-left: 30px;
+  margin-right: 30px;
+  background: linear-gradient(90deg, #660e48 0%, #2a0e0e 100%);
+  border-radius: 5px;
 }
 
-
-.list-store-card{
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    display: flex;
-    flex-direction: column;
+.list-store-card {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  display: flex;
+  flex-direction: column;
 }
-
-
 
 /* --- formulario de crear product --- */
 .one-half,
 .one-third {
-    position: relative;
-    margin-right: 4%;
-    float: left;
-        margin-bottom: 20px;
- 
-}
- 
-.one-half { width: 48%; }
-.one-third { width: 30.66%; }
- 
-.last {
-    margin-right: 0 !important;
-    clear: right;
-}
- 
-@media only screen and (max-width: 767px) {
-    .one-half, .one-third {
-        width: 100%;
-        margin-right: 0;
-    }
+  position: relative;
+  margin-right: 4%;
+  float: left;
+  margin-bottom: 20px;
 }
 
+.one-half {
+  width: 48%;
+}
+.one-third {
+  width: 30.66%;
+}
+
+.last {
+  margin-right: 0 !important;
+  clear: right;
+}
+
+@media only screen and (max-width: 767px) {
+  .one-half,
+  .one-third {
+    width: 100%;
+    margin-right: 0;
+  }
+}
 
 .form-prod-cre {
   background-color: #ffffff;
@@ -819,10 +832,8 @@ height: 75vh;
   text-align: center;
 }
 
-.edit-pro{
-  background: linear-gradient( 
-90deg
-, #3f51b5 0%, #03a9f4 100%);
+.edit-pro {
+  background: linear-gradient(90deg, #3f51b5 0%, #03a9f4 100%);
   color: white;
   padding: 10px 20px 10px 20px;
   border-radius: 5px;

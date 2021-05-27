@@ -9,18 +9,18 @@ router.use(checkIfUserIsLoggedIn);
 
 
 const fileStorageEngineP = multer.diskStorage({
-    //destination for files
+    // destination for files
   destination: (req, file, cb) => {
   cb(null, './public/uploads/products');
   },
 
-  //back files
+  // back files
   filename: (req, file, cb) => {
     cb(null, file.originalname);
   },
 });
 
-//upload parameters for multer
+// upload parameters for multer
 const upload = multer({
      storage: fileStorageEngineP 
   });
@@ -33,7 +33,7 @@ const upload = multer({
 router.get('/product-create', (req, res) => {
     Store.find()
     .then((dbStore) => {
-        res.render('products/create', { dbStore: dbStore});
+        res.render('products/create', { dbStore});
     })
     .catch((err) => 
     console.log(`Err while displaying product input page: ${err}`)

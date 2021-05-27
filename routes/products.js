@@ -66,8 +66,8 @@ router.post('/product-create', upload.single('imgProduct'), checkIfUserIsLoggedI
 
 // Show all products created and populate
 
-router.get('/products', (req, res, next) => {
-    Product.find()
+router.get('/products', checkIfUserIsLoggedIn, (req, res, next) => {
+    Product.find({ })
     .populate('store', {name: 1})
     .then((dbProduct) => {
         res.render('products/index', { products: dbProduct })

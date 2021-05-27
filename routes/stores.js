@@ -30,7 +30,7 @@ router.use(checkIfUserIsLoggedIn);
 
 // show all the stores created
 router.get('/', checkIfUserIsLoggedIn, (req, res, next) => {
-    Store.find({ })
+    Store.find({ owner: req.session.currentUser })
     .then((stores) => {
         res.render('stores/index', {stores});
     })

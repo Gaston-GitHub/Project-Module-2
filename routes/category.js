@@ -2,15 +2,18 @@ const express = require('express');
 
 const router = express.Router();
 
+const Product = require('../models/product')
+
 const Store = require('../models/store')
 
 
 /* GET ROPA Y CALZADO page ========================*/
 
 router.get('/ropa-y-calzado', (req, res, next) => {
-  Store.find({category: "Ropa y Calzado"})
-  .then((stores) => {
-    res.render('categoria/ropa-y-calzado', {stores});
+  Store.find()
+  .populate('products')
+  .then((dbStore) => {
+    res.render('categoria/ropa-y-calzado', {store: dbStore});
   })
   .catch(error => {
     next(error);
@@ -18,15 +21,31 @@ router.get('/ropa-y-calzado', (req, res, next) => {
 });
 
 router.get('/ropa-y-calzado/:id', (req, res, next) => {
-  const {id} = req.params
+  const {id} = req.params;
   Store.findById(id)
+  .populate('products')
   .then((store) => {
       // eslint-disable-next-line no-console
       console.log('store', store)
-      res.render('info-store', {store})
+      res.render('info-store', { store })
   })
-  .catch(error => {next(error)})
+  .catch(error => {next(error)});
+
 })
+
+
+// // Show all products created and populate
+
+// router.get('/products', (req, res, next) => {
+//   Product.find()
+//   .populate('store', {name: 1})
+//   .then((dbProduct) => {
+//       res.render('products/index', { products: dbProduct })
+//   })
+//   .catch(error => {
+//       next(error);
+//   });
+// })
 
 
 

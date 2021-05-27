@@ -163,6 +163,15 @@ li::after {
 
 /*------------ GENERAL CSS HOME-------------*/
 
+.upperc {
+  text-transform: capitalize;
+}
+
+.hw100px {
+  height: 100px;
+  width: 100px;
+}
+
 .fw100 {
   font-weight: 100;
 }
@@ -497,6 +506,8 @@ header > div {
   border-radius: 5px;
   border: 1px #c4c4c4 solid;
   box-shadow: 2px 2px 10px 0 #c0c0c0;
+  margin-bottom: 35px;
+  display: flex;
 }
 
 #info-store-product {

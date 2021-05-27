@@ -1,4 +1,55 @@
-<div class="body-sig-log">
+ <div class="vh100">     
+      <div class="card-to-prof"> 
+              <div>
+                     <a class="lg-hm-btm" href="/profile"> REGRESAR</a>
+              </div>
+
+              <div>
+                     <a class="lg-hm-btm" href="/logout">LOGOUT</a>
+              </div>
+      </div> 
+
+
+    <div class="card-profile"> 
+
+            <h2>Crear nueva tienda</h2>
+            
+            <div class="info-create-str"> 
+                <img class="icon-prof "src="/img/add-img.png">
+                <form action='/stores' enctype="multipart/form-data" method='POST'>
+
+                    <label for=''>Nombre</label>
+                    <input type='text' name='name'><br>
+
+                    <label for=''>Dirección</label>
+                    <input type='text' name='address'><br>
+
+                    <label for=''>Imagen (Logotipo o tienda)</label>
+                    <input type="file" name="imgStore" accept = ".jpg, .jpeg, .png"> <br>
+
+                    <label for="category-select"> Categoría de tienda
+                     <select name='category'>   
+                            <option disable selected value=""></option>
+                            <option value="Ropa y Calzado">Ropa y Calzado</option>
+                            <option value="Alimentación">Alimentación</option>
+                            <option value="Farmacias">Farmacias</option>
+                            <option value="Electrónica e Informática">Electrónica e Informática</option>
+                            <option value="Papelería y Documentación">Papelería y Documentación</option>
+                            <option value="Floristería">Floristería</option>
+                            <option value="Bricolaje">Bricolaje</option>
+                            <option value="Decoración y Muebles">Decoración y Muebles</option>
+                            <option value="Restauración y Hostelería">Restauración y Hostelería</option>
+                            <option value="Otros">Otros</option>
+                    </select>
+                    </label>
+                    <br>
+                    <button type='submit'>Crear</button>
+                </form>
+           </div> 
+    </div>
+
+
+{{!-- <div class="body-sig-log">
 
 <h2>Crear nueva tienda</h2>
 
@@ -34,4 +85,4 @@
 </form>
 
 <a href='/stores'>Go back!</a>
-</div>
+</div> --}}

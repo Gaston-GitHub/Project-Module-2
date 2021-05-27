@@ -1,6 +1,13 @@
+
+<div class="body-sig-log">
+
 <h2>Crear producto</h2>
+<<<<<<< HEAD
 
 <form action='/products' method='POST'>
+=======
+<form action='/product-create' enctype="multipart/form-data" method='POST'>
+>>>>>>> 1bdc74062c2f0d572736d9dd24ae5110d95b0a98
 
     <label for=''>Nombre</label>
     <input type='text' name='name'><br>
@@ -14,7 +21,10 @@
     <label for=''>Precio</label>
     <input type='text' name='price'><br>
 
-    <label for="store-select"> Creado por:
+    <label for=''>Imagen del producto</label>
+    <input type="file" name="imgProduct" accept = ".jpg, .jpeg, .png"> <br>
+
+    <label for="store-select"> Tienda:
         <select name="store">
             <option disable selected value=""></option>
                 {{#each dbStore}}
@@ -28,14 +38,7 @@
 
 </form>
 
-
-    
-    
-
-
-
-
-
-</form> 
-
 <a href='/products'>Volver atras!</a>
+
+</div>
+

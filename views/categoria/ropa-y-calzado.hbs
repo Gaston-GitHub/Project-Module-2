@@ -28,13 +28,15 @@
         <section id="structure" class="container">
              <h3>Ropa y Calzado</h3>
              <div id="#categorias">
-         {{#each stores}}
+         {{#each store}}
                 <article class="service-box itm-ctr flex-dc">
-                     <a href="/ropa-y-calzado/{{this._id}}"><img class="logoImg-store"src="/uploads/{{this.imgStore}}"></a>
-                     <a class="a-store" href="/ropa-y-calzado/{{this._id}}">{{this.name}}</a>
-                     <p class="location-txt"><img id="map-icon"src="/img/location-icon.png">{{this.address}}</p>
+                    <div class="hw100px">
+                     <a href="/ropa-y-calzado/{{this._id}}"><img class="logoImg-store"src="/uploads/{{imgStore}}"></a>
+                    </div>
+                     <a class="a-store" href="/ropa-y-calzado/{{this._id}}">{{name}}</a>
+                     <p class="location-txt"><img id="map-icon"src="/img/location-icon.png">{{address}}</p>
                     <a class="store-d" href='/ropa-y-calzado/{{this._id}}'>Ver productos</a>
-                 </article>
+                 </article><br>
          {{/each}}
         </section>
 </div>

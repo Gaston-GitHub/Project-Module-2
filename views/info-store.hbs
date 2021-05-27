@@ -21,29 +21,47 @@
             </div>
         </header>
         
-
+<div class="c-pg"> 
         <div class="info-stor-color"> 
           <div class="w60">
               <div class="p60"> 
                 <section id="info-store-card"> 
-                  <h2>Información de la tienda</h2>
-                  <a href="/"><img class="logoImg-store" src="/uploads/{{store.imgStore}}"></a>
+                  <h3 class="h3-ins">Información de la tienda</h2>
+                  <a href="/"><img class="logoImg-store2" src="/uploads/{{store.imgStore}}"></a>
                   <p>Nombre: {{store.name}}</p>
-                  <p>Dirección: {{store.address}}</p>
+                  <p><img id="map-icon"src="/img/location-icon.png">Dirección: {{store.address}}</p>
                   <p class="a-category">Categoría: {{store.category}}</p>
+                  <p>{{store.products.name}}</p>
+                  <p>{{products.name}}</p>
+                                    <p>{{products}}</p>
+
                 </section>  
               </div>  
           </div>
 
           <div class="w100">
               <div class="p60"> 
-                <section id="info-store-card"> 
-                  <h2>Producto</h2>
-                  <p>Nombre: {{product.name}}</p>
-                  <p>Dirección: {{product.name}}</p>
-                  <p>Categoría: {{product.name}}</p>
+                {{#each store.products}}
+                <section class="info-store-prod">
+
+                  <div class="card-picprod">
+                    <img class="pic-prod" src="/uploads/products/{{this.imgProduct}}">
+                  </div>
+                  
+                  <div class="w100"> 
+                      <h3 class="upperc">Producto: {{this.name}}</h3>
+                      <p>Descrip: {{this.description}}</p>
+                      <p>Precio: {{this.price}}Є</p>
+                      <p>Cantidad: {{this.quantity}} </p>
+                      <button>Comprar</button>
+                  </div>
+
                 </section>  
+                 {{/each}}
+
               </div>  
           </div>
 
         </div>
+
+    </div>

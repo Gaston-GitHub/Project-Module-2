@@ -1,13 +1,72 @@
+ <div class="vh100">     
+      <div class="card-to-prof"> 
+              <div>
+                     <a class="lg-hm-btm" href="/profile"> REGRESAR</a>
+              </div>
 
+              <div>
+                     <a class="lg-hm-btm" href="/logout">LOGOUT</a>
+              </div>
+      </div> 
+
+
+    <div class="card-profile"> 
+
+            <h2>Crear producto</h2>    
+            <div class="info-create-str"> 
+                 <img class="icon-prof "src="/img/add-product.png">
+                <form class="form-prod-cre" action='/product-create' enctype="multipart/form-data" method='POST'>
+                  
+                  <div class="one-half"> 
+                    <label for=''>Nombre</label>
+                    <input type='text' name='name'><br>
+                 </div>
+               
+                 <div class="one-half last"> 
+
+                    <label for=''>Descripcion</label>
+                    <input type='text' name='description'><br>
+                 </div>
+
+                 <div class="one-half"> 
+
+                    <label for=''>Cantidad</label>
+                    <input type='text' name='quantity'><br>
+                 </div>
+                 <div class="one-half last"> 
+
+                    <label for=''>Precio</label>
+                    <input type='text' name='price'><br>
+                 </div>
+                 <div class="one-half"> 
+
+                    <label for=''>Imagen del producto</label>
+                    <input type="file" name="imgProduct" accept = ".jpg, .jpeg, .png"> <br>
+                 </div>
+                 <div class="one-half last"> 
+
+                     <label for="store-select">Tienda:
+                        <select name="store">
+                            <option disable selected value=""></option>
+                           {{#each dbStore}}
+                           <option value="{{this._id}}">{{this.name}}</option>
+                           {{/each}}
+                        </select>
+                     </label>
+                                      </div>
+
+                     <br>
+                    <button type='submit'>Crear el producto</button>
+                </form>
+             </div> 
+    </div>
+
+
+{{!-- 
 <div class="body-sig-log">
 
 <h2>Crear producto</h2>
-<<<<<<< HEAD
-
-<form action='/products' method='POST'>
-=======
 <form action='/product-create' enctype="multipart/form-data" method='POST'>
->>>>>>> 1bdc74062c2f0d572736d9dd24ae5110d95b0a98
 
     <label for=''>Nombre</label>
     <input type='text' name='name'><br>
@@ -41,4 +100,4 @@
 <a href='/products'>Volver atras!</a>
 
 </div>
-
+ --}}

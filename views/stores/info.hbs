@@ -1,18 +1,20 @@
+    
+      <div class="card-to-prof"> 
+              <div>
+                     <a class="lg-hm-btm" href="/stores"> REGRESAR</a>
+              </div>
+
+              <div>
+                     <a class="lg-hm-btm" href="/logout">LOGOUT</a>
+              </div>
+      </div> 
+     
+        
         <div class="body-sig-log">
                 <h2>Información de la tienda</h2>
-
-                
-
+                <p>Name: {{store.name}}</p>
                 <p>Address: {{store.address}}</p>
                 <p>Category: {{store.category}}</p>
-
-
                 <a href='/stores/{{store._id}}/edit'>Editar tienda</a>
-                <a href='/stores/{{store._id}}/products-create'>Crear producto</a>
-
                 <a href='/stores'>Volver atrás!</a>
-
-
-
-
         </div>

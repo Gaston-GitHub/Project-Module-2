@@ -1,15 +1,54 @@
-<h2>Listado de productos</h2>
+ <div class="vh100">     
+      <div class="card-to-prof"> 
+              <div>
+                     <a class="lg-hm-btm" href="/profile"> REGRESAR</a>
+              </div>
 
-    {{#each products}}
+              <div>
+                     <a class="lg-hm-btm" href="/logout">LOGOUT</a>
+              </div>
+      </div> 
 
-    <p>Nombre: <a href='/{{this._id}}/edit'>{{name}}</a></p>
-    <p>Tienda:{{store.name}}</a></p>
 
-    <form action='/{{this._id}}/delete' method='POST'>
-    <button type='submit'>Borrar</button>
-    {{/each}}
+          <div class="c-pg"> 
+                <div class="info-stor-color"> 
+                    <div class="w60">
+                          <div class="p60"> 
+                                <section id="info-store-card"> 
+                                     <img class="icon-prof "src="/img/add-store-2.png">
+                                     <h3 class="h3-ins">Listado de Productos</h2>
+                                 </section>  
+                          </div>  
+                    </div>
 
-    <br>
-    <br>
-    <a href='/product-create'>Crear nuevo producto</a>
-    <a href='/'>Volver atras!</a>
+          <div class="w100">
+              <div class="p60"> 
+                {{#each products}}
+                <section class="info-store-prod">
+
+                  <div class="card-picprod">
+                    <img class="pic-prod" src="/uploads/products/{{this.imgProduct}}">
+                  </div>
+                  
+                  <div class="w100"> 
+                      <h3 class="upperc">Producto: {{name}}</h3>
+                      <p>Descrip: {{this.description}}</p>
+                      <div> 
+                      <a class="edit-pro" href='/{{this._id}}/edit'>Editar Producto</a></p>
+                      <form action='/{{this._id}}/delete' method='POST'>
+                        <button type='submit'>Borrar</button>
+                      </form>
+                      </div>
+                  </div>
+
+                </section>  
+                 {{/each}}
+
+              </div>  
+          </div>
+
+        </div>
+
+    </div>
+
+</div>

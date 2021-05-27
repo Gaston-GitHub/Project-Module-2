@@ -40,20 +40,6 @@ router.get('/product-create', (req, res) => {
     );
 });
 
-<<<<<<< HEAD
-// router.post('/product-create', (req, res, next) => {
-//     const { store, name, description, quantity, price } = req.body;
-//     Product.create({ store, name, description, quantity, price})
-//     // eslint-disable-next-line arrow-body-style
-//     .then(dbProduct => {
-//         console.log(dbProduct);
-//       res.redirect('products/info');
-//     })
-//     .catch((error) => {
-//     next(error);
-//     });
-// });
-=======
 
 // localhost:3000/product-create post of form and update the products in the Store model
 router.post('/product-create', upload.single('imgProduct'), checkIfUserIsLoggedIn, (req, res, next) => {
@@ -79,7 +65,6 @@ router.post('/product-create', upload.single('imgProduct'), checkIfUserIsLoggedI
 
 
 // Show all products created and populate
->>>>>>> 1bdc74062c2f0d572736d9dd24ae5110d95b0a98
 
 router.get('/products', (req, res, next) => {
     Product.find()

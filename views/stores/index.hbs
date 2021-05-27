@@ -1,20 +1,51 @@
+ <div class="vh100">     
+      <div class="card-to-prof"> 
+              <div>
+                     <a class="lg-hm-btm" href="/profile"> REGRESAR</a>
+              </div>
+
+              <div>
+                     <a class="lg-hm-btm" href="/logout">LOGOUT</a>
+              </div>
+      </div> 
+
+
+    <div class="card-profile"> 
+                <img class="icon-prof "src="/img/add-store-2.png">
+            <h2>Listado de todas las tiendas</h2>  
+            <div class="info-create-str"> 
+
+                <section class="df" >
+                  {{#each stores}}
+                  <div class="list-store-card"> 
+                         <div class="hw100px">
+                              <img class="logoImg-liststor"src="/uploads/{{imgStore}}"></a>
+                         </div>
+                         <p>Tienda: {{this.name}}</p>
+                         <a class="stor-det a-c" href='/stores/{{this._id}}'>Ver detalles<br> de la tienda</a>
+                         <form action='/stores/{{this._id}}/delete' method='POST'>    
+                          <button class="btt-dl" type='submit'>Borrar</button>
+                        </form>
+                  </div>
+                  {{/each}}
+              </section>
+           </div> 
+    </div>
+
+      
+      
+{{!--       
       
       <div class="body-sig-log">
 
       <h2>Listado de todas las tiendas</h2>
          {{#each stores}}
          <p>Name: {{this.name}}</p>
-
-
-          <a href='/stores/{{this._id}}'>Detalle de la tienda</a>
+         <a href='/stores/{{this._id}}'>Detalle de la tienda</a>
       <br>
-
-
-
          <form action='/stores/{{this._id}}/delete' method='POST'>    
          <button type='submit'>Delete</button>
          </form>
-
          {{/each}}
          <br>
 
@@ -23,4 +54,4 @@
          <br>
          <a href='/'>Go back!</a>
 
-   </div>
+   </div> --}}

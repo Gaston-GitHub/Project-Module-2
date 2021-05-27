@@ -1,44 +1,65 @@
+ <div class="vh100">     
+      <div class="card-to-prof"> 
+              <div>
+                     <a class="lg-hm-btm" href="/profile"> REGRESAR</a>
+              </div>
 
-<div class="body-sig-log">
+              <div>
+                     <a class="lg-hm-btm" href="/logout">LOGOUT</a>
+              </div>
+      </div> 
 
-<h2>Crear producto</h2>
-<<<<<<< HEAD
 
-<form action='/products' method='POST'>
-=======
-<form action='/product-create' enctype="multipart/form-data" method='POST'>
->>>>>>> 1bdc74062c2f0d572736d9dd24ae5110d95b0a98
+    <div class="card-profile"> 
 
-    <label for=''>Nombre</label>
-    <input type='text' name='name'><br>
+            <h2>Crear producto</h2>    
+            <div class="info-create-str"> 
+                 <img class="icon-prof "src="/img/add-product.png">
+                <form class="form-prod-cre" action='/product-create' enctype="multipart/form-data" method='POST'>
+                  
+                  <div class="one-half"> 
+                    <label for=''>Nombre</label>
+                    <input type='text' name='name'><br>
+                 </div>
+               
+                 <div class="one-half last"> 
 
-    <label for=''>Descripcion</label>
-    <input type='text' name='description'><br>
+                    <label for=''>Descripcion</label>
+                    <input type='text' name='description'><br>
+                 </div>
 
-    <label for=''>Cantidad</label>
-    <input type='text' name='quantity'><br>
+                 <div class="one-half"> 
 
-    <label for=''>Precio</label>
-    <input type='text' name='price'><br>
+                    <label for=''>Cantidad</label>
+                    <input type='text' name='quantity'><br>
+                 </div>
+                 <div class="one-half last"> 
 
-    <label for=''>Imagen del producto</label>
-    <input type="file" name="imgProduct" accept = ".jpg, .jpeg, .png"> <br>
+                    <label for=''>Precio</label>
+                    <input type='text' name='price'><br>
+                 </div>
+                 <div class="one-half"> 
 
-    <label for="store-select"> Tienda:
-        <select name="store">
-            <option disable selected value=""></option>
-                {{#each dbStore}}
-                <option value="{{this._id}}">{{this.name}}</option>
-                {{/each}}
-        </select>
-    </label>
-    <br>
+                    <label for=''>Imagen del producto</label>
+                    <input type="file" name="imgProduct" accept = ".jpg, .jpeg, .png"> <br>
+                 </div>
+                 <div class="one-half last"> 
 
-        <button type='submit'>Crear el producto</button>
+                     <label for="store-select">Tienda:
+                        <select name="store">
+                            <option disable selected value=""></option>
+                           {{#each dbStore}}
+                           <option value="{{this._id}}">{{this.name}}</option>
+                           {{/each}}
+                        </select>
+                     </label>
+                                      </div>
 
-</form>
+                     <br>
+                    <button type='submit'>Crear el producto</button>
+                </form>
+             </div> 
+    </div>
 
-<a href='/products'>Volver atras!</a>
 
-</div>
 

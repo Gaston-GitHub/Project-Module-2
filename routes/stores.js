@@ -28,16 +28,10 @@ router.use(checkIfUserIsLoggedIn);
     });
   
 
-<<<<<<< HEAD
- // show all the stores created
-router.get('/', (req, res, next) => {
-    Store.find({})
-=======
 
 // show all the stores created
 router.get('/', checkIfUserIsLoggedIn, (req, res, next) => {
     Store.find({ })
->>>>>>> 1bdc74062c2f0d572736d9dd24ae5110d95b0a98
     .then((stores) => {
         res.render('stores/index', {stores});
     })
@@ -64,28 +58,6 @@ router.get('/:id', (req, res, next) => {
 })
 
 
-<<<<<<< HEAD
-  router.post('/:id', (req, res, next) => {
-    const product = req.body;
-    Product.create({   
-        name: product.name, 
-        description: product.description, 
-        quantity: product.quantity, 
-        price: product.price,
-        // eslint-disable-next-line no-undef
-        store: {type: Schema.Types.ObjectId, ref:'Store'},
-    })
-    .then(dbProduct => {
-        // eslint-disable-next-line no-console
-        console.log(dbProduct);
-      res.redirect('products/info');
-    })
-    .catch((error) => {
-    next(error);
-    });
-});
-=======
->>>>>>> 1bdc74062c2f0d572736d9dd24ae5110d95b0a98
 
 
 // create store

@@ -14,9 +14,11 @@ const categoryStoreRouter = require('./routes/category')
 const stores = require('./routes/stores')
 const products = require('./routes/products')
 
+require('dotenv').config();
+
 
 mongoose
-  .connect('mongodb://localhost:27017/digital-commerces', { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     // eslint-disable-next-line no-console
     console.log('Connected to DB 🚀');
@@ -42,7 +44,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(
   session({
     store: MongoStore.create({
-      mongoUrl: 'mongodb://localhost:27017/digital-commerces',
+      mongoUrl: process.env.MONGODB_URI,
       // mongooseConnection: mongoose.connection,
       ttl: 24 * 60 * 60,
     }),
